@@ -20,3 +20,5 @@ vqmod/logs/*
 vqmod/vqcache/*
 vqmod/checked.cache
 vqmod/mods.cache
+admin/config.php
+config.php
