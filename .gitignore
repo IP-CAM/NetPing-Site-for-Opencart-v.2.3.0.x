@@ -1,0 +1,22 @@
+# CMS OpenCart #
+###################
+
+.htaccess
+/config.php
+admin/config.php
+
+!index.html
+
+download/
+system/cache/
+system/logs/
+
+system/storage/cache/
+system/storage/logs/
+
+# vQmod log files
+vqmod/logs/*
+# vQmod cache files
+vqmod/vqcache/*
+vqmod/checked.cache
+vqmod/mods.cache
