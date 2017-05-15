@@ -1,0 +1,2 @@
+2017-05-06 7:16:40 - PHP Warning:  ftp_connect(): php_network_getaddresses: getaddrinfo failed: ���� ���� ����������.  in C:\OpenServer_5.2.6\OpenServer\domains\netpingdevice.localhost\NetPing_OpenCart\admin\controller\extension\installer.php on line 291
+2017-05-06 7:21:30 - PHP Warning:  ftp_connect(): php_network_getaddresses: getaddrinfo failed: ���� ���� ����������.  in C:\OpenServer_5.2.6\OpenServer\domains\netpingdevice.localhost\NetPing_OpenCart\admin\controller\extension\installer.php on line 291
