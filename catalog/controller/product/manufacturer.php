@@ -1,6 +1,7 @@
 <?php
 class ControllerProductManufacturer extends Controller {
 	public function index() {
+
 		$this->load->language('product/manufacturer');
 
 		$this->load->model('catalog/manufacturer');
@@ -62,13 +63,23 @@ class ControllerProductManufacturer extends Controller {
 	}
 
 	public function info() {
+		// pavo version 2.2
+		$this->load->language('extension/module/themecontrol');
+		$data['objlang'] = $this->registry->get('language');
+		$data['ourl'] = $this->registry->get('url');
+
+		$config = $this->registry->get("config");
+		$data['sconfig'] = $config;
+		$data['themename'] = $config->get("theme_default_directory");
+		// end edit
+	
 		$this->load->language('product/manufacturer');
 
 		$this->load->model('catalog/manufacturer');
 
 		$this->load->model('catalog/product');
 
-		$this->load->model('tool/image');
+		$this->load->model('tool/image');		
 
 		if (isset($this->request->get['manufacturer_id'])) {
 			$manufacturer_id = (int)$this->request->get['manufacturer_id'];

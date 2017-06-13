@@ -1,6 +1,16 @@
 <?php
 class ControllerProductCompare extends Controller {
 	public function index() {
+		// pavo version 2.2
+		$this->load->language('extension/module/themecontrol');
+		$data['objlang'] = $this->registry->get('language');
+		$data['ourl'] = $this->registry->get('url');
+
+		$config = $this->registry->get("config");
+		$data['sconfig'] = $config;
+		$data['themename'] = $config->get("theme_default_directory");
+		// end edit
+		
 		$this->load->language('product/compare');
 
 		$this->load->model('catalog/product');
@@ -16,9 +26,9 @@ class ControllerProductCompare extends Controller {
 
 			if ($key !== false) {
 				unset($this->session->data['compare'][$key]);
-
-				$this->session->data['success'] = $this->language->get('text_remove');
 			}
+
+			$this->session->data['success'] = $this->language->get('text_remove');
 
 			$this->response->redirect($this->url->link('product/compare'));
 		}

@@ -37,6 +37,7 @@
               <strong><?php echo $text_fax; ?></strong><br>
               <?php echo $fax; ?>
               <?php } ?>
+			  <br />
             </div>
             <div class="col-sm-3">
               <?php if ($open) { ?>

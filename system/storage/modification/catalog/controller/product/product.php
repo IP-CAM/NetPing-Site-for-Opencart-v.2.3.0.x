@@ -3,6 +3,17 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
+
+		// pavo version 2.2
+		$this->load->language('extension/module/themecontrol');
+		$data['objlang'] = $this->registry->get('language');
+		$data['ourl'] = $this->registry->get('url');
+
+		$config = $this->registry->get("config");
+		$data['sconfig'] = $config;
+		$data['themename'] = $config->get("theme_default_directory");
+		// end edit
+
 		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();

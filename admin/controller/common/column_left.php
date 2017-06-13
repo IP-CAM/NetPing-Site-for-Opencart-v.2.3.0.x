@@ -205,6 +205,54 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => $extension
 				);		
 			}
+
+			//Pavo Theme Control Panel Edit
+
+			$themecontrol = array();
+
+			if ($this->user->hasPermission('access','extension/module/themecontrol')) {
+				$themecontrol[] = array(
+					'name'		=>	'Theme Control',
+					'href'		=>	$this->url->link('extension/module/themecontrol','token='.$this->session->data['token'],true),
+					'children'	=>	array()
+				);
+			}
+
+			if ($this->user->hasPermission('access','extension/module/themecontrol')) {
+				$themecontrol[] = array(
+					'name'		=>	'Megamenu',
+					'href'		=>	$this->url->link('extension/module/pavmegamenu','token='.$this->session->data['token'],true),
+					'children'	=>	array()
+				);
+			}
+
+			if ($this->user->hasPermission('access','extension/module/themecontrol')) {
+				$themecontrol[] = array(
+					'name'		=>	'Home Page Builder',
+					'href'		=>	$this->url->link('extension/module/pavhomebuilder','token='.$this->session->data['token'],true),
+					'children'	=>	array()
+				);
+			}
+
+			if ($this->user->hasPermission('access','extension/module/themecontrol')) {
+				$themecontrol[] = array(
+					'name'		=>	'Pav Blog',
+					'href'		=>	$this->url->link('extension/module/pavblog','token='.$this->session->data['token'],true),
+					'children'	=>	array()
+				);
+			}
+
+			if ($themecontrol) {
+				$data['menus'][] = array(
+					'id'       => 'menu-themecontrol',
+					'icon'	   => 'fa-rocket', 
+					'name'	   => 'Pavo Theme Control',
+					'href'     => '',
+					'children' => $themecontrol
+				);	
+			}
+
+			//End Pavo Theme Control Panel Edit
 			
 			// Design
 			$design = array();
@@ -242,6 +290,8 @@ class ControllerCommonColumnLeft extends Controller {
 				);	
 			}
 			*/	
+
+
 			if ($this->user->hasPermission('access', 'design/banner')) {
 				$design[] = array(
 					'name'	   => $this->language->get('text_banner'),
@@ -249,6 +299,8 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()		
 				);
 			}
+
+			
 			
 			if ($design) {
 				$data['menus'][] = array(

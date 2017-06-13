@@ -1,0 +1,310 @@
+/******************************************************
+ * @package Pav Opencart Theme Framework for Opencart 1.5.x
+ * @version 1.1
+ * @author http://www.pavothemes.com
+ * @copyright	Copyright (C) Augus 2013 PavoThemes.com <@emai:pavothemes@gmail.com>.All rights reserved.
+ * @license		GNU General Public License version 2
+*******************************************************/
+
+@media only screen and (min-width: 990px) and (max-width: 1200px) {
+	#search{
+		width: 175px;
+		 input {
+			width: 175px;
+		}
+	}
+	.product-info .image-additional {
+		padding: 0;
+	}
+	.product-info .image-additional a {
+		margin-left: 7px;
+	}
+	.social {
+	    padding: 0 100px;
+	}
+	.productdeals .product-block .cart{
+		margin-right: 5px;
+	}
+	.rtl .productdeals .product-block .cart{
+		margin-left: 5px;
+	}
+	.productdeals .item-countdown ul li{
+		height: 35px;
+		width: 35px;
+		margin: 2px;
+		padding: 0 !important;
+	}
+}
+@media only screen and (min-width: 990px){
+	.pavcol-sm-5 {
+	    float: left;
+	    min-height: 1px;
+	    padding-left: 10px;
+	    padding-right: 10px;
+	    position: relative;
+	    width: 20%;
+	}
+}
+
+@media only screen and (max-width: 990px) {
+	#topbar {
+		padding: 10px;
+	}
+.header-wrap .inner {
+		float: none;
+		text-align: center;
+		width: 100%;
+	}
+	#pav-mainnav {
+		position: absolute!important;
+		content: "";
+		top: -3px;
+		width: 60px;
+		height: 60px!important;
+	}
+	.navbar-inverse .navbar-toggle{
+		display: block;
+		float: none;
+		width: 44px;
+		height: 35px;
+		background-color: @white;
+		border-color: @white;
+		.border-radius (0);
+	}
+	
+
+	.navbar-collapse.collapse  {
+		display:  none!important
+	}
+
+	.navbar-nav > li {
+		float: none;
+	}
+	
+	.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+		background-color: @theme-bg-hover;
+		border: 1px solid @theme-bg-hover;
+	}
+	.product-info .image-additional {
+		padding: 0;
+	}
+	.product-info .image-additional a {
+		margin-left: 5px;
+	}
+	.zoomContainer {
+		display: none !important;
+	}
+	.social {
+	    padding: 0;
+	}
+	.social a {
+	    margin: 10px 0;
+	}
+	.productdeals .item-countdown ul li{
+		height: 40px;
+		width: 40px;
+		margin: 3px 2px !important;
+		padding: 0 !important;
+	}
+}
+@media only screen and (max-width: 990px) and (min-width: @screen-sm){
+	.productdeals .product-block .cart{
+		width: 100%;
+	}
+}
+@media only screen and (max-width: @screen-sm-max){
+	.reassurances-center {
+	    margin-bottom: 10px;
+	}
+	.button.canvas-menu{
+		margin-top: 70px;
+	} 
+}
+@media only screen and (max-width: @screen-sm){
+	.product-block .wishlist-compare{
+		opacity: 1 !important;
+	}
+	.row{
+		> #column-right.col-md-3.col-sm-12.sidebar{
+			width: 25%;
+			float: left;
+		}
+	}
+}
+
+@media only screen and (max-width: 749px){
+	#header #cart,
+	.box-services {
+		display: block !important;
+	    margin-bottom: 20px;
+	    width: 190px;
+	}
+	.wishlist-info td,
+	.wishlist-info th,		
+	table.history-list td, 
+	table.history-list th,				
+	table.order-info td, 
+	table.order-info th,		
+	table.compare-info td, 
+	table.compare-info th,
+	table.pav-checkout-product td,
+	table.pav-checkout-product th,
+	table.pav-shop-cart td,
+	table.pav-shop-cart th{
+		border-right: 0 none;
+		display: block !important;
+		float: none !important;
+		text-align: left !important;
+		width: auto !important;
+	}
+	.wishlist-info tr td:before,
+	table.history-list tr td:before,
+	table.order-info tr td:before,
+	table.pav-shop-cart tr td:before{
+		content: attr(data-label);
+		float: left;
+		font-weight: bold;
+		text-align: left;
+		white-space: nowrap;
+		width: 50%;
+	}
+	.wishlist-info tr td,
+	table.order-info tr td,
+	table.history-list tr td,
+	table.pav-shop-cart tr td {
+		text-align:right;
+		display: block;
+		min-height: 20px;
+		border-left: none;
+		background: none;
+	}
+	table.history-list thead,
+	table.order-info thead,
+	.wishlist-info thead,
+	table.pav-shop-cart thead {
+		 display:  none;
+	}
+	#header #cart, .box-services {
+	    margin-left: 35%;
+	}
+	.product-info .image-additional a {
+		display: inline-block;
+		float: inherit;
+	}
+	.product-info .image-additional .carousel-inner {
+		display: inline-block;
+		text-align: center;
+	}
+	.table-responsive{
+		.text-left{
+			.input-group{
+				.form-control{
+					padding: 5px;
+					margin-right: 40px;
+				}
+			}
+		}
+	}
+	.rtl{
+		.table-responsive{
+			.text-left{
+				.input-group{
+					.form-control{
+						margin-left: 40px;
+					}
+				}
+			}
+		}
+	}
+	#offcanvasmenu{
+		.dropdown-menu{
+			.widget-video{
+		        iframe{
+		          width: 120px !important;
+		          height: 100px !important;
+		        }
+		    }
+		}
+	}
+	#comment-form{
+		label{
+			width: 100% !important;
+		}
+	} 	
+	.product-filter{
+		> div{
+			margin-bottom: 2px !important;
+		}
+	}
+	.pav-categoryproducts{
+		.tab-nav{
+			ul{
+				li{
+					a{
+						padding: 15px 0 !important;
+					}
+				}
+			}
+		} 
+	} 
+	.rtl .pav-categoryproducts .tab-nav ul li a{
+		padding: 15px 0 !important;
+		text-align: center;
+	}
+}
+@media only screen and (max-width: 480px){
+	.show-mobile {
+		.quick-user .inner-toggle{
+            right: -130px!important;
+
+		}
+        .quick-access .inner-toggle {
+            right: -100px!important;
+		}
+	}
+	#cart{
+		width: 100%;
+		.btn{
+			margin-top: 10px;
+		}
+	}
+	.button.canvas-menu{
+		margin-top: 100px;
+		font-size: 10px;
+		padding: 2px 5px;
+		line-height: 20px;
+	}
+	.product-info{
+		.quantity-adder{
+			margin-bottom: 5px;
+		}
+		.product-action{
+			margin-left: -15px;
+		}
+	}
+	.rtl .product-info .product-action{
+		margin-right: -15px;
+	}
+
+}
+@media only screen and (max-width: 480px) and (min-width: 250px){
+	.product-info{
+		.quantity-adder{
+			margin-right: 40%;
+		}
+	}
+	.rtl .product-info .quantity-adder{
+		margin-left: 40%;
+	}
+}
+@media only screen and (max-width: 320px){
+	.product-info .image-additional {
+	    margin: 0 -3px !important;
+	}
+	.product-info .image-additional a {
+	    margin-left: 0 !important;
+	}
+	.filter-right > div{
+		margin-bottom: 2px !important;
+	}
+}

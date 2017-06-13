@@ -1,6 +1,17 @@
 <?php
 class ControllerExtensionModuleLatest extends Controller {
 	public function index($setting) {
+
+		// pavo version 2.2
+		$this->load->language('extension/module/themecontrol');
+		$data['objlang'] = $this->registry->get('language');
+		$data['ourl'] = $this->registry->get('url');
+
+		$config = $this->registry->get("config");
+		$data['sconfig'] = $config;
+		$data['themename'] = $config->get("theme_default_directory");
+		// end edit
+		
 		$this->load->language('extension/module/latest');
 
 		$data['heading_title'] = $this->language->get('heading_title');
