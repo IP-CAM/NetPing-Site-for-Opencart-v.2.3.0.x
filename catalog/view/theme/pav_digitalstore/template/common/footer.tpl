@@ -54,20 +54,28 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
           <div class="box">
             <div class="box-heading"><span><?php echo $text_service; ?></span></div>
-            <ul class="list">
+            <ul class="list" style="list-style: none outside none; padding: 0;">
+			  <li><a href="../buy">How to buy?</a></li>
               <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
-              <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
-              <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
-               <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
-              <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>
+			  <li><a href="../support">Support</a></li>
+            </ul>
+          </div>
+		  <br>
+		  <div class="box">
+            <div class="box-heading"><span>Partners</span></div>
+            <ul class="list" style="list-style: none outside none; padding: 0;">
+			  <li><a href="../partners">Official partners</a></li>
+			  <li><a href="../partnership-how-to">How to become a partner?</a></li>
+<!--              <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
+              <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
+              <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>-->
             </ul>
           </div>
         </div>
-          
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
+<!--        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
           <div class="box">
             <div class="box-heading"><span><?php echo $text_account; ?></span></div>
-            <ul class="list">
+            <ul class="list" style="list-style: none outside none; padding: 0;">
               <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
               <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
               <li><a href="<?php echo $wishlist; ?>"><?php echo $text_wishlist; ?></a></li>
@@ -76,6 +84,21 @@
             </ul>
           </div>
         </div>
+-->
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
+	      <div class="box">
+		    <div class="box-heading"><span><?php echo $text_information; ?></span></div>
+            <ul class="list" style="list-style: none outside none; padding: 0;">
+              <?php foreach ($informations as $information) { ?>
+              <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
+              <li><a href="../#">News</a></li>
+			  <li><a href="../#">Tutorial</a></li>
+			  <li><a href="../#">FAQ</a></li>
+			  <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
+			  <?php } ?>
+            </ul>
+           </div>
+	    </div>
          <?php if( $content=$helper->getLangConfig('widget_contact_us') ) {?>
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
             <div class="box contact-us">
@@ -113,7 +136,6 @@
         <?php } else { ?>
           <?php echo $powered; ?>. 
         <?php } ?>
-        Design By <a href="http://www.pavothemes.com" title="pavothemes - opencart themes clubs">PavoThemes</a>
       </div>  
       <?php if( $content=$helper->getLangConfig('widget_paypal') ) {?>
         <div class="paypal pull-right">

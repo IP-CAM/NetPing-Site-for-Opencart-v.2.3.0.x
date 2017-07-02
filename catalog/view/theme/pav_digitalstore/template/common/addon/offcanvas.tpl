@@ -7,7 +7,7 @@
                 <div id="offcanvasmenu"></div> 
           </div>
           <div class="offcanvas-footer panel-footer">
-              <div class="input-group" id="offcanvas-search">
+              <div class="input-group-mobile" id="offcanvas-search">
                 <input type="text" class="form-control" placeholder="Search" value="" name="search">
                 <span class="input-group-btn">
                   <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>

@@ -94,6 +94,22 @@ website:   	http://www.themepunch.com
 			background-color:#fb7354;
 			letter-spacing: -1.5px;
 		}
+		
+		.tp-caption.big_red{
+			position: absolute;
+			color: #CD0E00;
+			text-shadow: none;
+			font-weight: 400;
+			font-size: 36px;
+			line-height: 36px;
+			font-family: 'proximanova-regular', sans;
+			padding: 0px 4px;
+			margin: 0px;
+			border-width: 0px;
+			border-style: none;
+			background-color:#CD0E00;
+			letter-spacing: -1.5px;
+		}
 
 .tp-caption.big_black{
 			position: absolute;
@@ -130,7 +146,35 @@ website:   	http://www.themepunch.com
 
 .tp-caption.small_text{
 			position: absolute;
-			color: #6e6e6e;
+			color: #144E5A;
+			text-shadow: none;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 18px;
+			font-family: 'proximanova-regular', sans;
+			margin: 0px;
+			border-width: 0px;
+			border-style: none;
+			white-space:nowrap;
+		}
+		
+		.tp-caption.small_text_green_custom{
+			position: absolute;
+			color: #9BD2A1;
+			text-shadow: none;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 18px;
+			font-family: 'proximanova-regular', sans;
+			margin: 0px;
+			border-width: 0px;
+			border-style: none;
+			white-space:nowrap;
+		}
+		
+				.tp-caption.small_text_green_custom2{
+			position: absolute;
+			color: #9BD2A1;
 			text-shadow: none;
 			font-weight: 400;
 			font-size: 14px;
@@ -193,10 +237,10 @@ website:   	http://www.themepunch.com
 			position: absolute;
 			color: #fff;
 			text-shadow: none;
-			font-weight: 800;
-			font-size: 60px;
+			font-weight: 300;
+			font-size: 30px;
 			line-height: 60px;
-			font-family: 'proximanova-regular', sans;
+			font-family: 'Arial', sans;
 			margin: 0px;
 			border-width: 0px;
 			border-style: none;

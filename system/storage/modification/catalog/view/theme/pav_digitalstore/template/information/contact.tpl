@@ -29,17 +29,6 @@
                 <h2><?php echo $heading_title; ?></h2>
                 <div class="contact-address">
                     <p><?php echo $store; ?></p>
-                <ul><li><i class="fa fa-map-marker"></i><span><b><?php echo $text_address; ?></b><br />
-                    <?php echo $address; ?></span></li>
-                    <?php if ($telephone) { ?>
-                    <li><i class="fa fa-phone"></i><span><b><?php echo $text_telephone; ?></b><br />
-                    <?php echo $telephone; ?></span></li>
-                    <?php } ?>
-                    <?php if ($fax) { ?>
-                    <li><i class="fa fa-hdd-o"></i><span><b><?php echo $text_fax; ?></b><br />
-                    <?php echo $fax; ?></span></li>
-                    <?php } ?>
-                </ul>
                   </div>
           </div>
           <?php 
@@ -190,8 +179,8 @@
 <script type="text/javascript" src="catalog/view/javascript/gmap/gmap3.infobox.js"></script>
     <script type="text/javascript">
         var mapDiv, map, infobox;
-        var lat = <?php echo isset($themeConfig['location_latitude'])?$themeConfig['location_latitude']:'40.705423'; ?>;
-        var lon = <?php echo isset($themeConfig['location_longitude'])?$themeConfig['location_longitude']:'-74.008616'; ?>;
+        var lat = <?php echo isset($themeConfig['location_latitude'])?$themeConfig['location_latitude']:'25.046266'; ?>;
+        var lon = <?php echo isset($themeConfig['location_longitude'])?$themeConfig['location_longitude']:'121.509891'; ?>;
         jQuery(document).ready(function($) {
             mapDiv = $("#contact-map");
             mapDiv.height(400).gmap3({

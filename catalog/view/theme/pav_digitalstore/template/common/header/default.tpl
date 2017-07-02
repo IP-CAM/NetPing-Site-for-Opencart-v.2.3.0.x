@@ -1,18 +1,23 @@
 <nav id="topbar">
   <div class="container">
   		<div class="row">
-  			<div class="col-lg-5 col-md-4">
+  			<div class="header-phone col-md-4">
 				<div class="welcome pull-left">
-					<?php if ($logged) { ?>
-		            <a href="<?php echo $account; ?>"><?php echo $text_account; ?></a> -
+				<div class="welcome pull-phone">
+<!--					<?php if ($logged) { ?>
+		            <a href="<?php echo $account; ?>"><?php echo $text_account; ?></a>
 		            <a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a>
 		            <?php } else { ?>
 		            <a href="<?php echo $register; ?>"><?php echo $text_register; ?></a> or
 		            <a href="<?php echo $login; ?>"><?php echo $text_login; ?></a>
-		            <?php } ?>
-				</div>	
+		            <?php } ?> 
+-->
+					<span class="fa fa-phone"></span>
+					<span>Phone: <span style="color: #208E34">+886-2-23121582</span></span>
+				</div>
+                </div>				
 
-				<div class="currency pull-left">
+<!--				<div class="currency pull-left">
 					<?php echo $currency; ?>
 				</div> 
 				<div class="language pull-left">
@@ -34,9 +39,27 @@
 						</div>						
 					</div>
 
-				</div><!-- end mobile-->
+				</div>--><!-- end mobile-->
 			</div>
-			<div class="col-lg-7 col-md-8">
+			<div class="header-sale col-md-8">
+				<div class="welcome pull-left">
+				<div style="padding: 0px 35px 0px 0px; width: 125.333333%;">
+			         <span class="fa fa-shopping-cart"></span>
+					 <span>Sale: <a href="mailto:sales@netpingdevice.com">sales@netpingdevice.com</a></span>
+			    </div>
+				</div>
+             </div>
+			<div class="header-support col-md-4">
+				<div class="welcome pull-left">
+				<div style="padding: 0px 35px 0px 0px; width: 125.333333%;">
+			         <span class="fa fa-life-ring"></span>
+			         <span>Support: <a href="mailto:support@netpingdevice.com">support@netpingdevice.com</a></span>
+			    </div>
+				</div>
+             </div> 
+			 
+				<!-- Display Wish List, My Account, Shopping Cart, Checkout, Card in header -->
+<!--			<div class="col-lg-7 col-md-8">
 				<?php echo $cart; ?>
 				<ul class="links pull-right hidden-sm hidden-xs">
 					<li>
@@ -56,9 +79,12 @@
 					</li> 
 					
 				</ul>
-			</div>
-					
-	    </div><!-- end -->			
+			</div> 
+-->				
+            <div class="hidden-sm hidden-xs search" id="search" >
+						<?php echo $search; ?>
+			</div>	   	
+		</div><!-- end -->		
 	</div><!-- end container -->
 </nav>
 <header id="header-main">
@@ -140,9 +166,6 @@
 					        </nav>
 					    </div>   
 					<?php } ?>
-					</div>
-					<div class="hidden-sm hidden-xs search" id="search" >
-						<?php echo $search; ?>
 					</div>
 			</div>
 		</div>

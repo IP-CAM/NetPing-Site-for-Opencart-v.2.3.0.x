@@ -15,7 +15,7 @@ $_['text_success']   = '<p>Your enquiry has been successfully sent to the store 
 
 // Entry
 $_['entry_name']     = 'Your Name';
-$_['entry_email']    = 'E-Mail Address';
+$_['entry_email']    = 'E-Mail';
 $_['entry_enquiry']  = 'Enquiry';
 
 // Email

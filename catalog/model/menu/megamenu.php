@@ -326,7 +326,7 @@ class ModelMenuMegamenu extends Model {
 								$col->colwidth = isset($col->colwidth)?$col->colwidth:6;
 								if( isset($col->type) && $col->type == 'menu' && isset($cols[$key]) ){
 									$scol = '<div class="mega-col col-xs-12 col-sm-12 col-md-'.$col->colwidth.'" data-type="menu" '.$this->getColumnDataConfig( $col ).'><div class="mega-col-inner">';
-									$scol .= '<ul>';
+									$scol .= '<ul style="list-style: none outside none;">';
 									foreach( $cols[$key] as $menu ) {
 										 $scol .= $this->renderMenuContent( $menu, $level+1 );
 									}
@@ -352,7 +352,7 @@ class ModelMenuMegamenu extends Model {
 				
 					foreach( $cols as $i =>  $menus ){
 
-						$output .='<div class="mega-col '.$oSpans[$i+1].' col-'.($i+1).'" data-type="menu"><div class="mega-col-inner"><ul>';
+						$output .='<div class="mega-col '.$oSpans[$i+1].' col-'.($i+1).'" data-type="menu"><div class="mega-col-inner"><ul style="list-style: none outside none;">';
 							foreach( $menus as $menu ) {
 								$output .= $this->renderMenuContent( $menu, $level+1 );
 							}
@@ -379,7 +379,7 @@ class ModelMenuMegamenu extends Model {
 								if( isset($col->type) && $col->type == 'menu' ){
 									$colwidth = isset($col->colwidth)?$col->colwidth:'';
 									$scol = '<div class="mega-col col-xs-12 col-sm-12 col-md-'.$colwidth.'" data-type="menu" '.$this->getColumnDataConfig( $col ).'><div class="mega-col-inner">';
-									$scol .= '<ul>';
+									$scol .= '<ul style="list-style: none outside none;">';
 									foreach( $data as $menu ){
 										$scol .= $this->renderMenuContent( $menu , $level+1 );
 									}	
@@ -398,7 +398,7 @@ class ModelMenuMegamenu extends Model {
 					}$output .= '</div></div>';
 				} else {
 					$output = '<div class="'.$class.' level'.$level.'" '.$attrw.' ><div class="dropdown-menu-inner">';
-					$row = '<div class="row"><div class="col-sm-12 mega-col" data-colwidth="12" data-type="menu" ><div class="mega-col-inner"><ul>';
+					$row = '<div class="row"><div class="col-sm-12 mega-col" data-colwidth="12" data-type="menu" ><div class="mega-col-inner"><ul style="list-style: none outside none;">';
 					foreach( $data as $menu ){
 						$row .= $this->renderMenuContent( $menu , $level+1 );
 					}	

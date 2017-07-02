@@ -807,7 +807,8 @@ pre code {
 .col-xs-12 {
   width: 100%;
 }
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {*/
+@media (min-width: 1000px) {
   .container {
     max-width: 750px;
   }
@@ -859,6 +860,8 @@ pre code {
   }
   .col-sm-12 {
     width: 100%;
+	/*width: 1150px;
+    margin-left: 10px;*/
   }
   .col-sm-push-1 {
     left: 8.33333333%;
@@ -960,7 +963,8 @@ pre code {
     margin-left: 91.66666667%;
   }
 }
-@media (min-width: 992px) {
+/*@media (min-width: 992px) {*/
+@media (min-width: 1000px) {
   .container {
     max-width: 970px;
   }
@@ -987,7 +991,8 @@ pre code {
     width: 25%;
   }
   .col-md-4 {
-    width: 33.33333333%;
+/*    width: 33.33333333%;*/
+    padding: 5px 0px 0px 10px;
   }
   .col-md-5 {
     width: 41.66666667%;
@@ -999,7 +1004,8 @@ pre code {
     width: 58.33333333%;
   }
   .col-md-8 {
-    width: 66.66666667%;
+/*    width: 66.66666667%;*/
+    padding: 5px 0px 0px 10px;
   }
   .col-md-9 {
     width: 75%;
@@ -1149,16 +1155,40 @@ pre code {
     width: 25%;
   }
   .col-lg-4 {
-    width: 33.33333333%;
+    width: 22.333333%;
   }
   .col-lg-5 {
-    width: 41.66666667%;
+    width: 41.666667%;
+    padding: 5px 0px 0px 10px;
+	font-size: 14px;
+/*	color: #144E5A;*/
+  }
+  .header-phone {
+    width: 17.666667%;
+	padding: 5px 0px 0px 10px;
+	font-size: 14px;
+	color: #144E5A;
+  }
+  .header-sale {
+    width: 21.666667%;
+	padding: 5px 0px 0px 10px;
+	font-size: 14px;
+	color: #144E5A;
+  }
+  .header-support {
+    width: 23.666667%;
+	padding: 5px 0px 0px 10px;
+	font-size: 14px;
+	color: #144E5A;
   }
   .col-lg-6 {
     width: 50%;
   }
   .col-lg-7 {
-    width: 58.33333333%;
+    width: 57.4%;
+	padding: 5px 0px 0px 10px;
+	font-size: 14px;
+/*	color: #144E5A;*/
   }
   .col-lg-8 {
     width: 66.66666667%;
@@ -1583,7 +1613,7 @@ fieldset[disabled] .form-control {
   background-color: #7f7f7f;
 }
 textarea.form-control {
-  height: auto;
+  height: 278px;
 }
 .form-group {
   margin-bottom: 15px;
@@ -3128,6 +3158,12 @@ input[type="button"].btn-block {
   position: relative;
   display: table;
   border-collapse: separate;
+  width: 305px;
+}
+.input-group-mobile {
+  position: relative;
+  display: table;
+  border-collapse: separate;
 }
 .input-group.col {
   float: none;
@@ -3137,6 +3173,7 @@ input[type="button"].btn-block {
 .input-group .form-control {
   width: 100%;
   margin-bottom: 0;
+  border-color: #144E5A;
 }
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,

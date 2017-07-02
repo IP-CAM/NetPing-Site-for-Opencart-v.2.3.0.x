@@ -17,7 +17,7 @@ $_['success_post'] = "You have successfully subscribed to this newsletter.";
 
 $_['error_post'] = "This email address is already registered.";
 
-$_['description'] = "A newsletter is a regularly distributed publication that is generally about one main topic of interest to its subscribers.";
+$_['description'] = "Subscribe to news, firmware, tutorial and FAQ on NetPing devices.";
 
 $_['description_fs'] = "Get 15% off your next order. Be the first to learn about promotions special events, new arrivals and more";
 

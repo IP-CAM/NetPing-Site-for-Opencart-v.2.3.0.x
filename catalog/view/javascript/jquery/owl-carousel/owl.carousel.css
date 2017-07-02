@@ -47,11 +47,11 @@
 }
 .owl-controls .owl-buttons .owl-prev {
 	left: 10px;
-	top: 50%;
+	top: 43%;
 }
 .owl-controls .owl-buttons .owl-next {
 	right: 10px;
-	top: 50%;
+	top: 43%;
 }
 .owl-controls {
 	-webkit-user-select: none;
@@ -80,6 +80,7 @@
 	background: #fff;
 	direction: ltr !important;
 	z-index: 1;
+/*	padding: 70px 0px 0px 0px;*/
 }
 .owl-wrapper-outer {
 	border: 4px solid #fff;
@@ -108,8 +109,8 @@
 	right: 10px;
 }
 .owl-carousel .owl-buttons div i {
-	font-size: 40px;
-	margin: -20px 0 0;
+	font-size: 27px;
+	margin: -11px -4px 0px -4px;
 }
 .owl-pagination {
 	text-align: center;
