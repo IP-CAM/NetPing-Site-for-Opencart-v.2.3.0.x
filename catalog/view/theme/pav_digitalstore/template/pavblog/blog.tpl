@@ -41,7 +41,7 @@
 					<?php } ?>
 				</div>
 				
-				 <div class="description clearfix"><?php echo $description;?></div>
+<!--				 <div class="description clearfix"><?php echo $description;?></div> -->
 				 <div class="blog-content clearfix">
 						<div class="content-wrap clearfix">
 						<?php echo $content;?>

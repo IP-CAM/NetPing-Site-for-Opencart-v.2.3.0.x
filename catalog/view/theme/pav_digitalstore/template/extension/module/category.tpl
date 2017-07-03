@@ -1,9 +1,9 @@
 <div class="box category">
-  <div class="box-heading"><span><?php echo $heading_title; ?></span></div>
-  <div class="box-content">
-    <ul id="accordion" class="box-category list list-group accordion">
+  <div class="box-heading"><i class="fa fa-align-justify"></i><span><?php echo $heading_title; ?></span></div>
+  <div class="box-content-category">
+    <ul id="accordion" class="box-category list1 list-group accordion">
       <?php foreach ($categories as $key => $category) { ?>
-      <li class="list-group-item accordion-group">
+      <li class="list-group-item1 accordion-group">
         <?php if ($category['category_id'] == $category_id) { ?>
         <a href="<?php echo $category['href']; ?>" class="active"><?php echo $category['name']; ?></a>
         <?php } else { ?>

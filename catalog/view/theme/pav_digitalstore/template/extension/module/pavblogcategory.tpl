@@ -1,6 +1,6 @@
 <div class="box">
-	<h3 class="box-heading"><span><?php echo $heading_title; ?></span></h3>
-	<div class="box-content" id="pav-categorymenu" >
+	<h3 class="box-heading"><i class="fa fa-align-justify"></i><span><?php echo $heading_title; ?></span></h3>
+	<div class="box-content-blog" id="pav-categorymenu" >
 
 		 <?php echo $tree;?>
 		 
@@ -8,7 +8,7 @@
  </div>
 <script>
 $(document).ready(function(){
-	$("#pav-categorymenu ul").addClass("list");
+	$("#pav-categorymenu ul").addClass("list1");
 		// applying the settings
 		$("#pav-categorymenu li.active span.head").addClass("selected");
 			$('#pav-categorymenu ul').Accordion({

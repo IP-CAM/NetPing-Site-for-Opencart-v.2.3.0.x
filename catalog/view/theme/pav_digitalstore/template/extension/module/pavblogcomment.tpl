@@ -1,5 +1,5 @@
 <div class="box pavblogs-comments-box red">
-	<div class="box-heading"><span><?php echo $heading_title; ?></span></div>
+	<div class="box-heading"><i class="fa fa-comments" aria-hidden="true"></i><span><?php echo $heading_title; ?></span></div>
 	<div class="box-content" >
 		<?php if( !empty($comments) ) { ?>
 		<div class="pavblog-comments clearfix">

@@ -148,7 +148,7 @@
     </div>   
   </div>
 <div id="top" class="bo-social-icons">
-    <a href="#" class="bo-social-gray radius-x scrollup"><i class="fa fa-angle-up"></i></a>
+    <a href="#" class="bo-social-gray radius-x scrollup"><i class="fa1 fa-angle-up"></i></a>
   </div>
 <?php if( $helper->getConfig('enable_paneltool',0) ){  ?>
   <?php  echo $helper->renderAddon( 'panel' );?>

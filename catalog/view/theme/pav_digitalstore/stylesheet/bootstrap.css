@@ -4524,6 +4524,14 @@ a.thumbnail:focus {
   background-color: #fff;
   border: 1px solid transparent;
 }
+.list-group-item1 {
+  position: relative;
+  display: block;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  background: #E6F8E5;
+}
 .list-group-item:first-child {
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;

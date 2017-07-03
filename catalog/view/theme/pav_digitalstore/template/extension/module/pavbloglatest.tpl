@@ -2,7 +2,7 @@
 	$span = 12/$cols; 
 ?>
 <div class="box ">
-	<div class="box-heading"><span><?php echo $heading_title; ?></span></div>
+	<div class="box-heading"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span><?php echo $heading_title; ?></span></div>
 	<div class="box-content" >
 		<?php if( !empty($blogs) ) { ?>
 		<div class="pavblog-latest clearfix">
