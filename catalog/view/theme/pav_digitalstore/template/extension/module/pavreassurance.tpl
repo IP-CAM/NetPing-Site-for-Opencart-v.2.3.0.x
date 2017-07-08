@@ -23,8 +23,8 @@ if (!empty($pavreassurances)) { ?>
 							<div class="modal fade" id="myModal<?php echo $i;?>" tabindex="-1" role="dialog" >
 							  <div class="modal-dialog">
 							    <div class="modal-content">
-							      <div class="modal-header">
-							        <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+							      <div class="modal-header-new">
+							        <button type="button" class="close-new" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
 							        <span class="icon-name fa <?php echo $reassurance['select_icon'] ?>"></span>
 							        <h4><?php echo $reassurance['title']; ?></h4>
 							        <?php echo htmlspecialchars_decode($reassurance['caption']); ?>

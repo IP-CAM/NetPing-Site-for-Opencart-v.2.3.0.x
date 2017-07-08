@@ -35,6 +35,7 @@
 	<div class="blog-header clearfix">
 	
 	<h3 class="blog-title">	<a style="color: #208E34;" href="<?php echo $blog['link'];?>" title="<?php echo $blog['title'];?>"><?php echo $blog['title'];?></a></h3>
+	</br>
 	</div>
 	<?php } ?>
 		<?php if( $cat_show_description ) {?>

@@ -42,13 +42,28 @@
     margin-bottom: 20px;
 }
 .blog-item img {
-    margin-bottom:  20px;
+/* margin-bottom:  20px;*/
+    margin-bottom: 5px;
+ /*   margin-top: 20px;*/
 }
 .blog-item {
     margin-bottom: 20px;
 }
 .blog-item .description {
     margin-bottom: 10px;
+	line-height: 20px;
+}
+.description a {
+    color: #208E34;
+}
+.description a:hover {
+    text-decoration: underline;
+}
+.blog-header a:hover {
+    text-decoration: underline;
+}
+.blog-header h3 {
+    text-transform: uppercase;
 }
 /**
 * Blog Page
@@ -74,9 +89,17 @@
     font-weight: normal;
 }
 
-.pav-blog .blog-content, .pav-blog .blog-bottom { margin-bottom:20px; }
+.pav-blog .blog-content, .pav-blog .blog-bottom { margin-bottom:20px; line-height: 20px;}
+.blog-content a { color: #208E34;}
+.blog-content a:hover { text-decoration: underline;}
 .pav-comment,.pav-blog .blog-bottom { 
     padding-top: 10px;
+}
+.blog-bottom a {
+    color: #208E34;
+}
+.blog-bottom a:hover {
+    text-decoration: underline;
 }
 .pav-blog .blog-tags {
    margin-bottom: 15px;
@@ -166,6 +189,31 @@
 }
 .pavblock .blog-title {
     margin-bottom: 10px;
+	text-transform: uppercase;
+}
+.pavblock .blog-title a {
+    color: #208E34;
+	font-weight: 700;
+	display: block;
+    margin-top: 11px;
+}
+.pavblock .created {
+	display: block;
+    margin-top: 11px;
+}
+.pavblock .readmore {
+	color: #208E34;
+    background: #fff;
+    padding: 10px 20px 10px 20px;
+    border: solid #208E34 2px;
+    text-decoration: none;
+    position: absolute;
+    bottom: 33px;
+    margin-left: 11px;
+}
+.blog-item:hover {
+	background-color: #E6F8E5;
+    box-shadow: 0 1px 5px rgba(3,3,3,.15);
 }
 .pavblock .description {
     
@@ -177,4 +225,6 @@
 }
 .pavblog-latest .blog-item{
   /*   padding-top: 40px; */
+    height: 422px;
+ /*   box-shadow: 0 1px 5px rgba(3,3,3,.15);*/
 }
