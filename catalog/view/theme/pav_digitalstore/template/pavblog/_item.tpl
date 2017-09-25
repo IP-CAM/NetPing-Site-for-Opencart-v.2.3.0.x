@@ -1,4 +1,4 @@
-<div class="blog-item">
+<div class="blog-item-list">
 		<?php if( $blog['thumb'] && $cat_show_image )  { ?>
 		<img src="<?php echo $blog['thumb'];?>" title="<?php echo $blog['title'];?>" alt="<?php echo $blog['title'];?>" style="text-align:left"/>
 		<?php } ?>

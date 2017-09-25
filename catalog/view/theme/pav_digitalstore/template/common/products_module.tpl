@@ -25,7 +25,8 @@
 ?>
 
 <div class="box-heading">
-	<span><?php echo $heading_title; ?>(<?php echo count($products); ?>)</span>
+	<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+	<span><?php echo $heading_title; ?></span>
 	<em class="line"></em>
 </div>
 <?php if(!empty($products)){ ?>
