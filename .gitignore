@@ -7,7 +7,7 @@ admin/config.php
 
 !index.html
 
-image/cache
+image/cache/
 
 download/
 system/cache/
