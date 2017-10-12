@@ -60,7 +60,7 @@
         </ul>
 
         <?php if ($review_status) { ?>
-            <div class="rating">
+           <!-- <div class="rating">
                 <p>
                     <?php for ($i = 1; $i <= 5; $i++) { ?>
                         <?php if ($rating < $i) { ?>
@@ -70,7 +70,7 @@
                         <?php } ?>
                     <?php } ?>
                     <a href="#review-form" class="popup-with-form" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;" ><?php echo $reviews; ?></a> / <a href="#review-form"  class="popup-with-form" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;" ><?php echo $text_write; ?></a></p>
-            </div>
+            </div> -->
         <?php } ?>
              
         <div id="product" class="product-extra">
@@ -211,21 +211,21 @@
                 </div>
             <?php } ?>
           
-            <div class="quantity-adder pull-left">
+         <!-- <div class="quantity-adder pull-left">
               <?php echo $objlang->get('entry_qty'); ?>
               <input class="form-control" type="text" name="quantity" size="2" value="<?php echo $minimum; ?>">
                 <span class="add-up add-action">+</span> 
                 <span class="add-down add-action">-</span>
               </div>
-              <div class="product-action product-block">
-              <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+            <div class="product-action product-block">
+            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
               &nbsp;
-              <div class="cart pull-left"><input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="button" /></div>
+            <div class="cart pull-left"><input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="button" /></div>
               <div class="wishlist-compare pull-left">
                 <span class="wishlist"><a class="fa fa-heart" onclick="wishlist.add('<?php echo $product_id; ?>');" data-placement="top" data-toggle="tooltip" data-original-title="<?php echo $button_wishlist; ?>"><span><?php echo $button_wishlist; ?></span></a></span>
                 <span class="compare"><a class="fa fa-retweet" onclick="compare.add('<?php echo $product_id; ?>');" data-placement="top" data-toggle="tooltip" data-original-title="<?php echo $button_compare; ?>"><span><?php echo $button_compare; ?></span></a></span>
             </div>
-             </div>
+             </div> -->
 
         </div>
 

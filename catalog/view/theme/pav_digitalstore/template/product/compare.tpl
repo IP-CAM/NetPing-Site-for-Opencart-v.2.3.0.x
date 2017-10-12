@@ -70,8 +70,8 @@
             <?php } ?>
           </tr>
           <?php if ($review_status) { ?>
-          <tr>
-            <td><?php echo $text_rating; ?></td>
+          <!-- <tr>
+           <td><?php echo $text_rating; ?></td>
             <?php foreach ($products as $product) { ?>
             <td class="rating"><?php for ($i = 1; $i <= 5; $i++) { ?>
               <?php if ($products[$product['product_id']]['rating'] < $i) { ?>
@@ -83,7 +83,7 @@
               <br />
               <?php echo $products[$product['product_id']]['reviews']; ?></td>
             <?php } ?>
-          </tr>
+          </tr> -->
           <?php } ?>
           <tr>
             <td><?php echo $text_summary; ?></td>
@@ -128,7 +128,7 @@
         <tr>
           <td></td>
           <?php foreach ($products as $product) { ?>
-          <td><input type="button" value="<?php echo $button_cart; ?>" class="btn btn-default" onclick="cart.add('<?php echo $product['product_id']; ?>');" />
+          <td><!-- <input type="button" value="<?php echo $button_cart; ?>" class="btn btn-default" onclick="cart.add('<?php echo $product['product_id']; ?>');" /> -->
             <a href="<?php echo $product['remove']; ?>" class="btn btn-default"><?php echo $button_remove; ?></a></td>
           <?php } ?>
         </tr>

@@ -35,12 +35,12 @@
 			<?php } ?>
 
 			<?php if( isset($product['description']) ){ ?> 
-				<div class="description" itemprop="description"><?php echo utf8_substr( strip_tags($product['description']),0,100);?>...</div>
+				<div class="description" itemprop="description"><?php echo utf8_substr( strip_tags($product['description']),0,256);?>...</div>
 			<?php } ?>
 
 
 		 	  <?php if ( isset( $product['rating']) ) { ?>
-              <div class="rating">
+             <!-- <div class="rating">
                 <?php for ($is = 1; $is <= 5; $is++) { ?>
                 <?php if ($product['rating'] < $is) { ?>
                 <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i></span>
@@ -48,21 +48,21 @@
                 <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
                 <?php } ?>
                 <?php } ?>
-              </div>
+              </div> -->
               <?php } ?>
 
             <?php if( !isset($listingConfig['catalog_mode']) || !$listingConfig['catalog_mode'] ) { ?>
-				<div class="cart pull-left">
+			<!-- <div class="cart pull-left">
 				
 					<input type="button" value="<?php echo $objlang->get("button_cart"); ?>" onclick="cart.add('<?php echo $product['product_id']; ?>');" class="button" />			
-				</div>
+				</div> -->
 			<?php } ?>
 			 <div class="wishlist-compare">
-			 	<span class="wishlist">
+			<!-- 	<span class="wishlist">
 			 		<a class="fa fa-heart" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"  title="<?php echo $objlang->get("button_wishlist"); ?>" >
 			  			<span><?php echo $objlang->get("button_wishlist");?></span>
 			  		</a>
-			 	</span>
+			 	</span> -->
 			 	<span class="compare">
 			 		<a class="fa fa-retweet"  onclick="compare.add('<?php echo $product['product_id']; ?>');" title="<?php echo $objlang->get("button_compare"); ?>" >
 			  			<span><?php echo $objlang->get("button_compare"); ?></span>

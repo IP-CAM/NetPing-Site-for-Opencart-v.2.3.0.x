@@ -100,6 +100,12 @@ ul li,
 ol li {
   line-height: 20px;
 }
+.link-compare a {
+  color: #468847
+}
+.link-compare a:hover {
+  text-decoration: underline;
+}
 body,
 td,
 th,
@@ -2213,11 +2219,12 @@ ul.box-filter span {
 .product-list .products-block .products-row {
   border-bottom: none;
 }
-.product-list .products-block .products-row:last-child > div {
+/*.product-list .products-block .products-row:last-child > div {
   border-bottom: none;
-}
+} */
 .product-list .products-block .products-row > div {
-  border-bottom: 1px solid #f3f3f3;
+  /*border-bottom: 1px solid #f3f3f3;*/
+  border-bottom: 2px solid #F5F6F7;
 }
 .product-list .products-block .products-row > div:before {
   background: none;

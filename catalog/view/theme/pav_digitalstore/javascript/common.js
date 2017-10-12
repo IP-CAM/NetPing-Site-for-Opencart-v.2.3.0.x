@@ -233,7 +233,7 @@ var cart = {
         }
 
         if (json['success']) {
-          $('#notification').html('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+          $('#notification').html('<div class="alert alert-success link-compare"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
           setTimeout(function () {
             $('#cart-total').html(json['total']);
@@ -295,7 +295,7 @@ var wishlist = {
         }
 
         if (json['success']) {
-           $('#notification').html('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+           $('#notification').html('<div class="alert alert-success link-compare"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
         }
 
         $('#wishlist-total').html('<i class="fa fa-heart"></i>' + json['total']);
@@ -324,7 +324,7 @@ var compare = {
         $('.alert').remove();
 
         if (json['success']) {
-          $('#notification').html('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+          $('#notification').html('<div class="alert alert-success link-compare"><i class="fa fa-check-circle"></i> ' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
           $('#compare-total').html(json['total']);
 

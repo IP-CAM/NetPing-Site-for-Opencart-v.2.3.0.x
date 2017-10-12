@@ -7,7 +7,7 @@
 		'listing_products_columns' 		     		=> 0,
 		'listing_products_columns_small' 	     	=> 2,
 		'listing_products_columns_minismall'    	=> 1,
-		'cateogry_display_mode' 			     	=> 'grid',
+		'cateogry_display_mode' 			     	=> 'list',
 		'category_pzoom'				          	=> 1,	
 		'quickview'                                 => 0,
 		'show_swap_image'                       	=> 0,
@@ -36,7 +36,8 @@
 	} 
 ?>	
 
-<div id="products" class="box product-<?php echo $DISPLAY_MODE; ?>"> 
+<div id="products" class="box product-<?php echo $DISPLAY_MODE; ?> "> 
+<div id="products" class="product-list"> 
 	<div class="box-content"><div class="products-block">
 		<?php
 		$cols = $MAX_ITEM_ROW ;
@@ -60,7 +61,7 @@
 		<?php } ?>
 	</div></div>
 </div>
-<div class="paging clearfix">
+<!-- <div class="paging clearfix"> 
 	<div class="pull-left"><?php echo $pagination; ?></div>
 	<div class="pull-right"><?php echo $results; ?></div>
-</div>
+</div> -->
