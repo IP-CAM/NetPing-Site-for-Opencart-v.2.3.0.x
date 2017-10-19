@@ -248,6 +248,9 @@
         <?php if ($attribute_groups) { ?>
             <li><a href="#tab-specification" data-toggle="tab"><?php echo $tab_attribute; ?></a></li>
         <?php } ?>
+		<?php if(isset($newtabcontent) && $newtabcontent) { ?>
+			<li><a href="#tab-newtabcontent" data-toggle="tab"><?php echo $text_newtabcontent; ?></a></li>
+		<?php } ?>
         <?php if ($review_status) { ?>
             <li><a href="#tab-review" data-toggle="tab"><?php echo $tab_review; ?></a></li>
         <?php } ?>
@@ -278,6 +281,9 @@
                 </table>
             </div>
         <?php } ?>
+		<?php if(isset($newtabcontent) && $newtabcontent) { ?>
+			<div class="tab-pane" id="tab-newtabcontent"><?php echo $newtabcontent; ?></div>
+		<?php } ?>
         <?php if ($review_status) { ?>
             <div class="tab-pane" id="tab-review">
               <form class="form-horizontal" id="form-review">
@@ -332,5 +338,6 @@
                 </div>
             </div>
         <?php } ?>
+	</div>
 </div>
 

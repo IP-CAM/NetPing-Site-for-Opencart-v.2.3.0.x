@@ -13,7 +13,7 @@
         <?php } ?>
         <a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="imagezoom">
             <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image"  data-zoom-image="<?php echo $popup; ?>" class="product-image-zoom img-responsive"/>
-        </a>
+         </a>
 
     </div>
     <?php } ?>  
@@ -44,11 +44,11 @@
             <?php
             if(count($images)>$icols){
             ?>
-            <a class="carousel-control left center" href="#image-additional" data-slide="next">
-                <i class="fa fa-angle-left"></i>
+            <a class="carousel-control left center" href="#image-additional" data-slide="prev">
+                <i class="fa-gal-left fa-angle-left"></i>
             </a>
-            <a class="carousel-control right center" href="#image-additional" data-slide="prev">
-                <i class="fa fa-angle-right"></i>
+            <a class="carousel-control right center" href="#image-additional" data-slide="next">
+                <i class="fa-gal-right fa-angle-right"></i>
             </a>
             <?php } ?>
         </div>          

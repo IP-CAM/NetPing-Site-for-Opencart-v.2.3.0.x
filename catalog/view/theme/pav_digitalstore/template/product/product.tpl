@@ -55,7 +55,7 @@
 
 
           <?php if ($tags) { ?>
-          <p><?php echo $text_tags; ?>
+          <!--<p><!--<?php echo $text_tags; ?>
             <?php for ($i = 0; $i < count($tags); $i++) { ?>
             <?php if ($i < (count($tags) - 1)) { ?>
             <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>,
@@ -63,7 +63,7 @@
             <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>
             <?php } ?>
             <?php } ?>
-          </p>
+          </p>-->
           <?php } ?>
 
  	<div class="box box-product product-related"> <?php require( PAVO_THEME_DIR."/template/common/products_related.tpl" );  ?> </div>     
@@ -208,7 +208,7 @@ $('button[id^=\'button-upload\']').on('click', function() {
 	});
 });
 //--></script> 
-<script type="text/javascript"><!--
+<script type="text/javascript">
 $('#review').delegate('.pagination a', 'click', function(e) {
   e.preventDefault();
 
@@ -258,13 +258,16 @@ $(document).ready(function() {
         items: {
           src:  $('img',this).attr('src')
         },
-        type: 'image'
+        type: 'image',
+		gallery: {
+          enabled: true
+        }
       }); 
       return false;
     }
   );
 });
-//--></script> 
+</script> 
 <?php if( $productConfig['product_enablezoom'] ) { ?>
 <script type="text/javascript" src=" catalog/view/javascript/jquery/elevatezoom/elevatezoom-min.js"></script>
 <script type="text/javascript">
@@ -289,8 +292,11 @@ if( $(window).width() >= 992 ) {
     $('thumbnails').magnificPopup({
       type:'image',
       delegate:{
-        enable:true
-      }
+        enable: true
+      },
+	  gallery: {
+         enabled: true
+        }
     });
   });
 </script>

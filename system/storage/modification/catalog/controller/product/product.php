@@ -1,4 +1,41 @@
 <?php
+
+			
+    global $aFolder;
+    global $modulesPath;
+    
+    
+    
+    if (!defined('HTTP_ADMIN')) {
+    	$root_dir = DIR_APPLICATION.'../';
+    	$folder_contents = scandir($root_dir);
+		if (!(in_array('admin', $folder_contents) && file_exists($root_dir.'admin/config.php'))) {
+			foreach ($folder_contents as $value) {
+				if (is_dir($root_dir.$value) && $value != '.' && $value != '..'){
+					if (file_exists($root_dir.$value.'/config.php')) {
+						$admin_folder_name = $value;
+						continue;
+					}
+				}
+			}
+		}
+    	if (isset($admin_folder_name)) {
+    		define('HTTP_ADMIN',$admin_folder_name);
+    	} else {
+    		define('HTTP_ADMIN','admin');
+    	}
+    	
+    }
+    
+    $aFolder = preg_replace('/.*\/([^\/].*)\//is','$1',HTTP_ADMIN);
+    
+    if (version_compare(VERSION,'2.3','>=')) { //newer than 2.2.x
+        $modulesPath = 'extension/module';
+    } else {
+        $modulesPath = 'module';
+    }
+
+    include (preg_match("/components\/com_(ayelshop|aceshop|mijoshop)\/opencart\//ims",__FILE__,$matches)?'components/com_'.$matches[1].'/opencart/':'').$aFolder.'/controller/'.$modulesPath.'/magictoolbox-module.inc';
 class ControllerProductProduct extends Controller {
 	private $error = array();
 
@@ -299,6 +336,7 @@ class ControllerProductProduct extends Controller {
 
 			if ($product_info['image']) {
 				$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height'));
+if(isset($data['popup'])) $data['popup'] = $data['popup'].'" id="mainimage';
 			} else {
 				$data['popup'] = '';
 			}
@@ -312,10 +350,11 @@ class ControllerProductProduct extends Controller {
 			$data['images'] = array();
 
 			$results = $this->model_catalog_product->getProductImages($this->request->get['product_id']);
+$product_info['images'] = $results;
 
 			foreach ($results as $result) {
 				$data['images'][] = array(
-					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height')),
+					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height')).'" id="selector',
 					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
 				);
 			}
@@ -491,7 +530,7 @@ class ControllerProductProduct extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('product/product', $data));
+			$this->response->setOutput(magicRender($this->load->view('product/product', $data),$this,'product',$product_info));
 		} else {
 			$url = '';
 

@@ -28,14 +28,14 @@
 	$productLayout = DIR_TEMPLATE.$theme.'/template/common/product/'.$listingConfig['product_layout'].'.tpl';	
 ?>
 <div class="box-heading">
-	<span><?php echo $text_related; ?>(<?php echo count($products); ?>)</span>
+	<span><?php echo $text_related; ?> (<?php echo count($products); ?>)</span>
 </div>
 <?php if(!empty($products)){ ?>
 	<div id="related" class="slide carousel product-grid" data-interval="0">
 		<?php if(count($products) > $span){ ?>
 	    <div class="carousel-controls">
-	      <a class="carousel-control left fa fa-angle-left" href="#related" data-slide="prev"></a>
-	      <a class="carousel-control right fa fa-angle-right" href="#related" data-slide="next"></a>
+	      <a class="carousel-control left fa-rel fa-angle-left" href="#related" data-slide="prev"></a>
+	      <a class="carousel-control right fa-rel fa-angle-right" href="#related" data-slide="next"></a>
 	    </div>
 		<?php } ?>
 		<div class="box-content">

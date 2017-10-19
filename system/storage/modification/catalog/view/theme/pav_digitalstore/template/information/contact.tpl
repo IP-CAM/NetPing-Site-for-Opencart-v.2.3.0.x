@@ -29,6 +29,17 @@
                 <h2><?php echo $heading_title; ?></h2>
                 <div class="contact-address">
                     <p><?php echo $store; ?></p>
+                <ul><li><i class="fa fa-map-marker"></i><span><b><?php echo $text_address; ?></b><br />
+                    <?php echo $address; ?></span></li>
+                    <?php if ($telephone) { ?>
+                    <li><i class="fa fa-phone"></i><span><b><?php echo $text_telephone; ?></b><br />
+                    <?php echo $telephone; ?></span></li>
+                    <?php } ?>
+                    <?php if ($fax) { ?>
+                    <li><i class="fa fa-hdd-o"></i><span><b><?php echo $text_fax; ?></b><br />
+                    <?php echo $fax; ?></span></li>
+                    <?php } ?>
+                </ul>
                   </div>
           </div>
           <?php 

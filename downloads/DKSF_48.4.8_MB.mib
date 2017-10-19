@@ -21,12 +21,16 @@ IMPORTS
                 
  
 netPing8Pwr MODULE-IDENTITY 
-        LAST-UPDATED "201603140000Z"  
+        LAST-UPDATED "201705020000Z"  
         ORGANIZATION "Alentis Electronics" 
         CONTACT-INFO 
                 "developers@netping.ru" 
         DESCRIPTION 
                 "Generic MIB for NetPing remote sensing and control" 
+                
+        REVISION "201705020000Z"   
+        DESCRIPTION                 
+                "nnpRelHumidity branch updated for multiple sensors"                  
                 
         REVISION "201603140000Z"   
         DESCRIPTION                 
@@ -69,7 +73,7 @@ netPing8Pwr MODULE-IDENTITY
         DESCRIPTION 
                 "npReboot branch was added"
 
-		REVISION "201203230000Z"   
+		    REVISION "201203230000Z"   
         DESCRIPTION 
                 "Minor changes to IR module for IRC-TRv2"				
 				
@@ -642,36 +646,51 @@ npIoTrap NOTIFICATION-TYPE
     ::= { npIoTrapPrefix 1 }
     
     
-    
 npRelHumidity OBJECT IDENTIFIER::={lightcom 8400}
-npRelHumSensor OBJECT IDENTIFIER::={npRelHumidity 2}
 
-npRelHumSensorStatus     OBJECT-TYPE 
-    SYNTAX     INTEGER {
-      error(0),
-      ok(1)
-      }
+npRelHumTable       OBJECT-TYPE 
+    SYNTAX     SEQUENCE OF NpRelHumEntry 
+    MAX-ACCESS     not-accessible 
+    STATUS     current 
+    DESCRIPTION  "Humidity+Temperature Sensors Table"     
+    ::= { npRelHumidity 1 } 
+
+npRelHumEntry       OBJECT-TYPE 
+    SYNTAX     NpRelHumEntry 
+    MAX-ACCESS     not-accessible 
+    STATUS     current 
+    DESCRIPTION  "Humidity+Temperature Sensors Table Row"     
+    INDEX     { npRelHumN } 
+    ::= { npRelHumTable 1 } 
+    
+NpRelHumEntry     ::= SEQUENCE { 
+    npRelHumN             INTEGER,
+    npRelHumValue         INTEGER,
+    npRelHumStatus        INTEGER,
+    npRelHumTempValue     INTEGER,
+    npRelHumTempStatus    INTEGER, 
+    npRelHumMemo          DisplayString,
+    npRelHumSafeRangeHigh INTEGER,
+    npRelHumSafeRangeLow  INTEGER,
+    npRelHumTempSafeRangeHigh INTEGER,
+    npRelHumTempSafeRangeLow  INTEGER
+    }
+
+npRelHumN          OBJECT-TYPE 
+    SYNTAX     INTEGER (1..4)
     MAX-ACCESS     read-only 
     STATUS     current 
-    DESCRIPTION  "Status of the Rel.Humidity Sensor One
-                  1=Normal, 0=Error or Sensor isn't connected"
-    ::= { npRelHumSensor 3 } 
-    
-npRelHumSensorValueH    OBJECT-TYPE 
+    DESCRIPTION  "Index of Humidity+Temperature sensor, 1 to max supported" 
+    ::= { npRelHumEntry 1 }    
+
+npRelHumValue    OBJECT-TYPE 
     SYNTAX     INTEGER (0..100)
     MAX-ACCESS     read-only 
     STATUS     current 
     DESCRIPTION  "Relative humidity value, %" 
-    ::= { npRelHumSensor 2 } 
+    ::= { npRelHumEntry 2 } 
     
-npRelHumSensorValueT     OBJECT-TYPE 
-    SYNTAX     INTEGER (-60..200)
-    MAX-ACCESS     read-only 
-    STATUS     current 
-    DESCRIPTION  "Sensor temperature, deg.C" 
-    ::= { npRelHumSensor 4 }     
-
-npRelHumSensorStatusH     OBJECT-TYPE 
+npRelHumStatus     OBJECT-TYPE 
     SYNTAX     INTEGER {
                   sensorFailed(0),
                   belowSafeRange(1),
@@ -681,44 +700,255 @@ npRelHumSensorStatusH     OBJECT-TYPE
     MAX-ACCESS     read-only 
     STATUS     current 
     DESCRIPTION  "Status of Relative Humiduty" 
-    ::= { npRelHumSensor 5 } 
+    ::= { npRelHumEntry 3 }     
+    
+npRelHumTempValue     OBJECT-TYPE 
+    SYNTAX     INTEGER (-60..200)
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Sensor temperature, deg.C" 
+    ::= { npRelHumEntry 4 }     
+
+npRelHumTempStatus     OBJECT-TYPE 
+    SYNTAX     INTEGER {
+                  sensorFailed(0),
+                  belowSafeRange(1),
+                  inSafeRange(2),
+                  aboveSafeRange(3)
+                }  
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Status of Relative Humiduty" 
+    ::= { npRelHumEntry 5 } 
+
+npRelHumMemo    OBJECT-TYPE 
+    SYNTAX     DisplayString 
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Sensor Memo/Location" 
+    ::= { npRelHumEntry 6 }    
 	
 npRelHumSafeRangeHigh    OBJECT-TYPE 
     SYNTAX     INTEGER (0..100)
     MAX-ACCESS     read-only 
     STATUS     current 
     DESCRIPTION  "Relative Humidity safe range, top margin, %RH" 
-    ::= { npRelHumSensor 7 } 	
+    ::= { npRelHumEntry 7 } 	
 	
 npRelHumSafeRangeLow    OBJECT-TYPE 
     SYNTAX     INTEGER (0..100)
     MAX-ACCESS     read-only 
     STATUS     current 
     DESCRIPTION  "Relative Humidity safe range, bottom margin, %RH" 
-    ::= { npRelHumSensor 8 } 		
+    ::= { npRelHumEntry 8 } 		
 
-npRelHumSensorValueT100   OBJECT-TYPE 
-    SYNTAX     Integer32
+npRelHumTempSafeRangeHigh    OBJECT-TYPE 
+    SYNTAX     INTEGER (-55..150)
     MAX-ACCESS     read-only 
     STATUS     current 
-    DESCRIPTION  "Sensor temperature, deg.C * 100 (fixed point two decimal places)
-                  Used to get access to the fractional part of T value" 
-    ::= { npRelHumSensor 9 } 
+    DESCRIPTION  "Temperature safe range, top margin, deg.C" 
+    ::= { npRelHumEntry 9 } 	
+	
+npRelHumTempSafeRangeLow    OBJECT-TYPE 
+    SYNTAX     INTEGER (-55..150)
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Temperature safe range, bottom margin, deg.C" 
+    ::= { npRelHumEntry 10 }
 
-npRelHumTraps   OBJECT IDENTIFIER::={npRelHumidity 9} 
-npRelHumTrapPrefix OBJECT IDENTIFIER::={npRelHumTraps 0} 	
+npRelHumTrapData OBJECT IDENTIFIER::={npRelHumidity 3}
 
-npRelHumTrap NOTIFICATION-TYPE
-    OBJECTS { 
-	npRelHumSensorStatusH,
-    npRelHumSensorValueH,
-	npRelHumSafeRangeHigh,
-	npRelHumSafeRangeLow
+npRelHumTrapDataN          OBJECT-TYPE 
+    SYNTAX     INTEGER (1..4)
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Index of Humidity+Temperature sensor, 1 to max supported" 
+    ::= { npRelHumTrapData 1 }    
+
+npRelHumTrapDataValue     OBJECT-TYPE 
+    SYNTAX     INTEGER
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Sensor humidity, %RH, or temperature, deg.C" 
+    ::= { npRelHumTrapData 2 }
+
+npRelHumTrapDataStatus     OBJECT-TYPE 
+    SYNTAX     INTEGER {
+                  sensorFailed(0),
+                  belowSafeRange(1),
+                  inSafeRange(2),
+                  aboveSafeRange(3)
+                }  
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Status of humidity or temperature" 
+    ::= { npRelHumTrapData 4 } 
+
+npRelHumTrapDataMemo    OBJECT-TYPE 
+    SYNTAX     DisplayString 
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Sensor Memo/Location" 
+    ::= { npRelHumTrapData 6 }    
+	
+npRelHumTrapDataSafeRangeHigh    OBJECT-TYPE 
+    SYNTAX     INTEGER
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Relative Humidity safe range, top margin, %RH or deg.C" 
+    ::= { npRelHumTrapData 7 } 	
+	
+npRelHumTrapDataSafeRangeLow    OBJECT-TYPE 
+    SYNTAX     INTEGER
+    MAX-ACCESS     read-only 
+    STATUS     current 
+    DESCRIPTION  "Relative Humidity safe range, bottom margin, %RH or deg.C" 
+    ::= { npRelHumTrapData 8 } 	
+
+npRelHumTrap OBJECT IDENTIFIER::={npRelHumidity 6}   
+npRelHumTrapAllEvents OBJECT IDENTIFIER::={npRelHumTrap 127}
+npRelHumTrapTemp OBJECT IDENTIFIER::={npRelHumidity 7}  
+npRelHumTrapTempAllEvents OBJECT IDENTIFIER::={npRelHumTrapTemp 127}
+
+npRelHumTrapAllChannels NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
         }
     STATUS  current
     DESCRIPTION
-        "Status of Relative Humidity RH sensor has changed!"
-    ::= { npRelHumTrapPrefix 1 }
+        "Status of Humidity has changed!"
+    ::= { npRelHumTrapAllEvents 99 }
+    
+npRelHumTrapAboveSafe NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
+        }
+    STATUS  current
+    DESCRIPTION
+        "Humidity above the Safe range"
+    ::= { npRelHumTrap 103 }
+
+npRelHumTrapSafe NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
+        }
+    STATUS  current
+    DESCRIPTION
+        "Humidity in the Safe range"
+    ::= { npRelHumTrap 102 }
+
+npRelHumTrapBelowSafe NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
+        }
+    STATUS  current
+    DESCRIPTION
+        "Humidity below the Safe range"
+    ::= { npRelHumTrap 101 }
+
+npRelHumTrapFail NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
+        }
+    STATUS  current
+    DESCRIPTION
+        "Rel.Humidity sensor failed!"
+    ::= { npRelHumTrap 100 }      
+
+npRelHumTrapTempAllChannels NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
+        }
+    STATUS  current
+    DESCRIPTION
+        "Status of Temperature has changed!"
+    ::= { npRelHumTrapTempAllEvents 99 }
+
+npRelHumTrapTempAboveSafe NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
+        }
+    STATUS  current
+    DESCRIPTION
+        "Temperature above the Safe range"
+    ::= { npRelHumTrapTemp 103 }
+
+npRelHumTrapTempSafe NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
+        }
+    STATUS  current
+    DESCRIPTION
+        "Temperature in the Safe range"
+    ::= { npRelHumTrapTemp 102 }
+
+npRelHumTrapTempBelowSafe NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
+        }
+    STATUS  current
+    DESCRIPTION
+        "Temperature below the Safe range"
+    ::= { npRelHumTrapTemp 101 }
+    
+npRelHumTrapTempFail NOTIFICATION-TYPE
+    OBJECTS {
+  npRelHumTrapDataN,    
+	npRelHumTrapDataStatus,
+  npRelHumTrapDataValue,
+  npRelHumTrapDataMemo,
+	npRelHumTrapDataSafeRangeHigh,
+	npRelHumTrapDataSafeRangeLow
+        }
+    STATUS  current
+    DESCRIPTION
+        "Sensor failed!"
+    ::= { npRelHumTrapTemp 100 }
 
 
 

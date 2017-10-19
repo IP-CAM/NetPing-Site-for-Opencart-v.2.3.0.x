@@ -352,12 +352,12 @@ a.button:hover {
 }
 .tab-content {
   padding: 20px;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
   z-index: 2;
 }
 /* carousel */
 .carousel-controls {
-  position: absolute;
+ /*position: absolute;*/
   top: -30px;
   right: 0;
 /*width: 50px;*/
@@ -365,28 +365,48 @@ a.button:hover {
 }
 .carousel-controls .carousel-control {
   line-height: 24px;
-  color: #e76d66;
+  /*color: #e76d66;*/
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
   cursor: pointer;
+  margin-top: 145px;
 }
 .carousel-control {
   text-shadow: none;
   width: 26px;
   height: 26px;
-  background-color: #f4f4f4;
+  background-color: #E8E9EA;
   font-size: 22px;
   line-height: 22px;
-  top: 38%;
+  top: 23%;
   cursor: pointer;
-  color: #b0b0b0;
+  color: #000000;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 .carousel-control:hover {
+  background-color: #208E34;
+  color: #FFFFFF;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.carousel-control-rel {
+  text-shadow: none;
+  width: 26px;
+  height: 26px;
+  background-color: #E8E9EA;
+  font-size: 22px;
+  line-height: 22px;
+  top: 23%;
+  cursor: pointer;
+  color: #000000;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.carousel-control-rel:hover {
   background-color: #208E34;
   color: #FFFFFF;
   -webkit-transition: all 0.3s ease 0s;
@@ -407,6 +427,8 @@ a.button:hover {
   -o-border-radius: 3px;
   border-radius: 3px;
   background-image: none;
+  /*color: #000000;
+  font-size: inherit;*/
 }
 /* links style */
 ul.links {
@@ -2432,7 +2454,8 @@ ul.box-filter span {
 }
 .product-info .image-additional a {
   display: inline-block;
-  margin: 0 3px ;
+  margin: 0 3px;
+  border: 1px solid #dbdbdb;
 }
 .product-info .option-image {
   margin-top: 3px;
