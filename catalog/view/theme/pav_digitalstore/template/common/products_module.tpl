@@ -41,7 +41,7 @@
 		<div class="carousel-inner">
 			<?php foreach ($products as $i => $product) { $i=$i+1; ?>
 			<?php if( $i%$cols == 1 && $cols > 1 ) { ?>
-			<div class= "item <?php if($i==1) {?>active<?php } ?>">	<div class="products-block">
+			<div class= "item <?php if($i==1) {?>active<?php } ?>">	<div class="products-block-">
 				<div class="row products-row">
 			<?php } ?>
 				<div class="col-lg-<?php echo $span;?> col-md-<?php echo $span;?> col-sm-6 col-xs-12 product-col">

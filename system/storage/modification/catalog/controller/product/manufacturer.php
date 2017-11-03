@@ -118,6 +118,9 @@ class ControllerProductManufacturer extends Controller {
 
 		$this->load->model('tool/image');		
 
+				$mmos_shortdescr_set = 	$this->config->get('mmos_shortdescr');
+			
+
 		if (isset($this->request->get['manufacturer_id'])) {
 			$manufacturer_id = (int)$this->request->get['manufacturer_id'];
 		} else {
@@ -261,7 +264,7 @@ $image = $image .'" id="manufacturers_'.$result['product_id'].'"';
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
-					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+					'description' => isset($result['mmos_shortdescr']) && $result['mmos_shortdescr'] != '' && $mmos_shortdescr_set['status'] == 1  && isset($mmos_shortdescr_set["prelated"]) ?  $result['mmos_shortdescr'] : utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,

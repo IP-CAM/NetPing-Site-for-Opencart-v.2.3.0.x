@@ -54,6 +54,12 @@
 .blog-item {
     margin-bottom: 20px;
 }
+.blog-item:hover img{
+    opacity: 0.7;
+	filter: alpha(opacity=100);
+	-webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
 .blog-item-list {
     margin-bottom: 50px;
 }
@@ -73,6 +79,9 @@
 }
 .blog-header a:hover {
     text-decoration: underline;
+}
+.blog-header-latest a:hover {
+    text-decoration: none;
 }
 .blog-header h3 {
     text-transform: uppercase;
@@ -204,7 +213,7 @@
 	text-transform: uppercase;
 }
 .pavblock .blog-title a {
-    color: #208E34;
+    /*color: #208E34;*/
 	font-weight: 700;
 	display: block;
     margin-top: 11px;
@@ -223,9 +232,17 @@
     bottom: 33px;
     margin-left: 11px;
 }
+.readmore-new {
+    position: absolute;
+	bottom: 33px;
+	text-transform: uppercase;
+}
+.readmore-blog {
+	text-transform: uppercase;
+}
 .blog-item:hover {
-	background-color: #E6F8E5;
-    box-shadow: 0 1px 5px rgba(3,3,3,.15);
+	/*background-color: #E6F8E5;
+    box-shadow: 0 1px 5px rgba(3,3,3,.15);*/
 }
 .blog-item-list:hover {
 

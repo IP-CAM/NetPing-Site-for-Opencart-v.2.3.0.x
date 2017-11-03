@@ -544,6 +544,15 @@ class ControllerCatalogProduct extends Controller {
 	protected function getForm() {
 		$data['heading_title'] = $this->language->get('heading_title');
 
+        $data['mmos_shortdescr'] = $this->config->get('mmos_shortdescr');             
+        if(isset($data['mmos_shortdescr']['status']) && $data['mmos_shortdescr']['status'] == 1) {       
+         $this->load->language('extension/module/mmos_shortdescr_add_lang');
+        
+        $data['text_mmos_short_descr'] = sprintf($this->language->get('text_mmos_short_descr'), $this->session->data['token'],$data['mmos_shortdescr']['maxdescr']);
+        $data['entry_mmos_short_descr'] = sprintf($this->language->get('entry_mmos_short_descr'),$data['mmos_shortdescr']['maxdescr'] );  
+            }               
+                        
+
 		$data['text_form'] = !isset($this->request->get['product_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
@@ -749,6 +758,21 @@ class ControllerCatalogProduct extends Controller {
 
 		$data['languages'] = $this->model_localisation_language->getLanguages();
 
+
+               $mmos_shortdescr = $this->config->get('mmos_shortdescr');
+
+        if(isset($mmos_shortdescr['status']) && $mmos_shortdescr['status'] == 1) {     
+            if (isset($this->request->post['product_mmos_shortdescr'])) {
+				$data['product_mmos_shortdescr'] = $this->request->post['product_mmos_shortdescr'];
+			} elseif (isset($this->request->get['product_id'])) {
+				$this->load->model('catalog/mmos_shortdescr');                 
+				$data['product_mmos_shortdescr'] = $this->model_catalog_mmos_shortdescr->get_desrc_product($this->request->get['product_id']);
+			} else {
+				$data['product_mmos_shortdescr'] = array();
+					
+					}
+        }
+		
 		if (isset($this->request->post['product_description'])) {
 			$data['product_description'] = $this->request->post['product_description'];
 		} elseif (isset($this->request->get['product_id'])) {

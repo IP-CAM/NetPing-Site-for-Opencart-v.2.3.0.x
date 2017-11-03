@@ -53,6 +53,7 @@ class ControllerProductProduct extends Controller {
 
 		$this->load->language('product/product');
 
+$mmos_shortdescr_set= $this->config->get('mmos_shortdescr');
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -324,6 +325,10 @@ class ControllerProductProduct extends Controller {
 			$data['points'] = $product_info['points'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 
+			$mmos_shortdescr_set= $this->config->get('mmos_shortdescr');
+			$data['mmos_shortdescr'] = html_entity_decode(isset($product_info['mmos_shortdescr']) && $product_info['mmos_shortdescr'] != '' && $mmos_shortdescr_set['status'] == 1  && isset($mmos_shortdescr_set["pproduct"]) ? $product_info['mmos_shortdescr'] : '', ENT_QUOTES, 'UTF-8');
+			
+
 			if ($product_info['quantity'] <= 0) {
 				$data['stock'] = $product_info['stock_status'];
 			} elseif ($this->config->get('config_stock_display')) {
@@ -443,6 +448,7 @@ $product_info['images'] = $results;
 				$data['customer_name'] = '';
 			}
 
+$mmos_shortdescr_set= $this->config->get('mmos_shortdescr');
 			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
 			$data['rating'] = (int)$product_info['rating'];
 
@@ -496,7 +502,7 @@ $product_info['images'] = $results;
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
-					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+					'description' => isset($result['mmos_shortdescr']) && $result['mmos_shortdescr'] != '' && $mmos_shortdescr_set['status'] == 1  && isset($mmos_shortdescr_set["prelated"]) ?  $result['mmos_shortdescr'] : utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,

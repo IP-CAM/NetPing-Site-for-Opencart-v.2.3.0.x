@@ -44,7 +44,7 @@
 		</div>
 		<?php } ?>
 		<?php if( $cat_show_readmore ) { ?>
-		<div class="blog-readmore"><a href="<?php echo $blog['link'];?>" class="button btn btn-default"><?php echo $objlang->get('text_readmore');?></a></div>
+		<div class="blog-readmore"><a href="<?php echo $blog['link'];?>" class="btn demo readmore-blog"><?php echo $objlang->get('text_readmore');?></a></div>
 		<?php } ?>
 	</div>	
 </div>

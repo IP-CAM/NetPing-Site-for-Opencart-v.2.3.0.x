@@ -44,8 +44,10 @@
           <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script> 
-        <!-- AddThis Button END --> 
-         <ul class="list-unstyled description">
+        <!-- Product Short Description module -->
+		<?php if($mmos_shortdescr != '') { ?><blockquote class="blockquote"><?php echo $mmos_shortdescr ; ?></blockquote><?php } ?>
+		<!-- AddThis Button END --> 
+        <!--<ul class="list-unstyled description">
             <?php if ($manufacturer) { ?>
                 <li><b><?php echo $text_manufacturer; ?></b> <a href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></li>
             <?php } ?>
@@ -57,7 +59,7 @@
                 <li><b><?php echo $text_points; ?></b> <?php echo $points; ?></li>
             <?php } ?>
             <li><b class="availability"><?php echo $text_stock; ?></b> <?php echo $stock; ?></li>
-        </ul>
+        </ul> -->
 
         <?php if ($review_status) { ?>
            <!-- <div class="rating">

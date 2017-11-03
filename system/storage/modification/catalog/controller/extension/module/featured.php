@@ -63,6 +63,9 @@ class ControllerExtensionModuleFeatured extends Controller {
 
 		$this->load->model('tool/image');
 
+				$mmos_shortdescr_config = 	$this->config->get('mmos_shortdescr');
+			
+
 		$data['products'] = array();
 
 		if (!$setting['limit']) {
@@ -113,7 +116,7 @@ class ControllerExtensionModuleFeatured extends Controller {
 						'product_id'  => $product_info['product_id'],
 						'thumb'       => $image,
 						'name'        => $product_info['name'],
-						'description' => utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+						'description' => isset($product_info['mmos_shortdescr']) && $product_info['mmos_shortdescr'] != '' && $mmos_shortdescr_config['status'] == 1  && isset($mmos_shortdescr_config["featured"]) ?  $product_info['mmos_shortdescr'] : utf8_substr(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 						'price'       => $price,
 						'special'     => $special,
 						'tax'         => $tax,

@@ -34,6 +34,8 @@ html {
   padding: 0;
 }
 body {
+  /*background: url(http://netpingdevice.localhost/image/catalog/Eng_site/catalog/general/general_background.jpg) no-repeat center 0 #F5F6F7;*/
+  background-attachment: fixed;
   overflow-x: hidden;
   background-color: #f5f6f7;
   line-height: 18px;
@@ -523,6 +525,9 @@ ul.list > li a.active ul {
   width: 20px;
   height: 20px;
   cursor: pointer;
+}
+.sh-desc-list ul {
+  /*padding: 0px 0px 0px 450px;*/
 }
 /******************************************************
  * @package Pav Opencart Theme Framework for Opencart 1.5.x
@@ -1500,6 +1505,9 @@ font-family: proximanovasemibold;
   padding: 20px 10px 10px 20px;
   color: #6e6e6e;
 }
+.gray-background {
+  background: #ffffff;
+}
 .gray h3 {
   color: #282b2f;
 }
@@ -2200,7 +2208,7 @@ ul.box-filter span {
   background-image: -webkit-linear-gradient(bottom, #FFF 16%, #E3E3E3 53%, #FFF 83%);
   background-image: -ms-linear-gradient(bottom, #FFF 16%, #E3E3E3 53%, #FFF 83%);
   background-image: linear-gradient(to bottom, #FFF 16%, #E3E3E3 53%, #FFF 83%);
-  content: "";
+  /*content: "";*/
   height: 100%;
   position: absolute;
   right: 0;
@@ -2294,9 +2302,9 @@ ul.box-filter span {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
-  border-radius: 5px;
+  /*border-radius: 5px;
   -webkit-box-shadow: 0 0 3px #d3d3d3;
-  box-shadow: 0 0 3px #d3d3d3;
+  box-shadow: 0 0 3px #d3d3d3;*/
 }
 /* 
  * PRODUCT INFORMATION PAGE

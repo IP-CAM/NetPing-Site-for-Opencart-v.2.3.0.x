@@ -13,7 +13,7 @@
 							<div class="blog-header clearfix">
 								<span class="created"><span><?php echo $blog['created'];?></span></span><!--/-->
 								<!--	<span class="comment_count"><span><?php echo $blog['comment_count'];?><?php echo $objlang->get("text_comment_count");?></span> --></span>
-								<div class="blog-title">
+								<div class="blog-title blog-header-latest">
 									<a href="<?php echo $blog['link'];?>" title="<?php echo $blog['title'];?>"><?php echo $blog['title'];?></a>
 								</div>
 							</div>
@@ -27,7 +27,8 @@
 										<?php $blog['description'] = strip_tags($blog['description']); ?>
 										<?php echo utf8_substr( $blog['description'],0, 140);?>...
 								</div>
-								<a class="readmore btn-arrow-right" href="<?php echo $blog['link'];?>"><?php echo $objlang->get('text_readmore');?></a>
+								<!--<a class="readmore btn-arrow-right" href="<?php echo $blog['link'];?>"><?php echo $objlang->get('text_readmore');?></a>-->
+							    <a class="btn demo readmore-new" href="<?php echo $blog['link'];?>"><?php echo $objlang->get('text_readmore');?></a>
 							</div>	
 						</div>
 			</div>

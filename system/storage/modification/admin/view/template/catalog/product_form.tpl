@@ -63,6 +63,19 @@
                       <textarea name="product_description[<?php echo $language['language_id']; ?>][description]" placeholder="<?php echo $entry_description; ?>" id="input-description<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($product_description[$language['language_id']]) ? $product_description[$language['language_id']]['description'] : ''; ?></textarea>
                     </div>
                   </div>
+   
+                
+                <?php  if( isset($mmos_shortdescr['status']) &&  $mmos_shortdescr['status'] == 1 ) {  ?>      
+                 <div class="form-group">
+                    <label class="col-sm-2 control-label" for="product_mmos_shortdescr<?php echo $language['language_id']; ?>"><?php echo $text_mmos_short_descr; ?></label>
+                    <div class="col-sm-10">
+                      <textarea maxlength="<?php echo $mmos_shortdescr['maxdescr'] ; ?>" row="3" name="product_mmos_shortdescr[<?php echo $language['language_id']; ?>][description]"  placeholder="<?php echo $entry_mmos_short_descr; ?>" id="product_mmos_shortdescr<?php echo $language['language_id']; ?>" class="form-control <?php echo isset($mmos_shortdescr['richtext'])  ? 'summernote' : '' ;?>"><?php echo isset($product_mmos_shortdescr[$language['language_id']]) ? $product_mmos_shortdescr[$language['language_id']]['description'] : ''; ?></textarea>
+                    </div>
+                  </div>
+          
+            <?php } ?>
+               
+                   
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-meta-title<?php echo $language['language_id']; ?>"><?php echo $entry_meta_title; ?></label>
                     <div class="col-sm-10">

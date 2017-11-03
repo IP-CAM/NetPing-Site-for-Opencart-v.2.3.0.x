@@ -85,12 +85,12 @@
             <?php } ?>
           </tr> -->
           <?php } ?>
-          <tr>
+         <!-- <tr>
             <td><?php echo $text_summary; ?></td>
             <?php foreach ($products as $product) { ?>
             <td class="description"><?php echo $products[$product['product_id']]['description']; ?></td>
             <?php } ?>
-          </tr>
+          </tr> -->
           <tr>
             <td><?php echo $text_weight; ?></td>
             <?php foreach ($products as $product) { ?>

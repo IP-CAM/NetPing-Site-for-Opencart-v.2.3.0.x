@@ -251,7 +251,7 @@ $('#button-review').on('click', function() {
 	});
 });
 
-$(document).ready(function() { 
+/*$(document).ready(function() { 
   $('.thumbnail a').click(
     function(){  
       $.magnificPopup.open({
@@ -266,7 +266,32 @@ $(document).ready(function() {
       return false;
     }
   );
+});*/
+
+$(document).ready(function() {
+  $('.thumbnail a').click( function( e ){
+      var items = [];
+
+      var images = $('#image-additional-carousel .imagezoom');
+      for ( var i = 0; i < images.length; i ++ ) {
+        items.push({
+          src: $( images[i] ).attr( 'href' )
+        });
+      }
+
+      $.magnificPopup.open({
+        items: items,
+        type: 'image',
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0,1]
+        }
+      });
+      return false;
+  });
 });
+
 </script> 
 <?php if( $productConfig['product_enablezoom'] ) { ?>
 <script type="text/javascript" src=" catalog/view/javascript/jquery/elevatezoom/elevatezoom-min.js"></script>

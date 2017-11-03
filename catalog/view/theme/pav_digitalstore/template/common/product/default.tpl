@@ -1,6 +1,6 @@
 <div class="product-block" itemtype="http://schema.org/Product" itemscope>
-
-   <?php if ($product['thumb']) { ?>
+<table>
+<tr>  <?php if ($product['thumb']) { ?>
       <div class="image">
       	<?php if( $product['special'] ) {   ?>
     	<span class="product-label-special label"><?php echo $objlang->get( 'text_sale' ); ?></span>
@@ -13,7 +13,7 @@
       </div>
     <?php } ?>  
 	
-	<div class="product-meta">
+<td><div class="product-meta">
 			<h4 class="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
 			
 			<?php if ($product['price']) { ?>
@@ -34,9 +34,13 @@
 			</div>
 			<?php } ?>
 
-			<?php if( isset($product['description']) ){ ?> 
+			<!--<?php if( isset($product['description']) ){ ?> 
 				<div class="description" itemprop="description"><?php echo utf8_substr( strip_tags($product['description']),0,256);?>...</div>
-			<?php } ?>
+			<?php } ?>-->
+			
+			<!-- Product Short Description module -->
+			<div class="sh-desc-list"><p><?php echo $product['description']; ?></p></div>
+			<!--<p><?php echo $product['description']; ?></p>-->
 
 
 		 	  <?php if ( isset( $product['rating']) ) { ?>
@@ -69,8 +73,8 @@
 			  		</a>
 			 	</span>  
 			</div>			
-	</div>
-
+	</div></td></tr>
+</table>
 </div>
 
 
