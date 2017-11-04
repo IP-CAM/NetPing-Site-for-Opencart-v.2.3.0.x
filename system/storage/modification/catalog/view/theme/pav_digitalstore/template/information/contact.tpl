@@ -25,9 +25,9 @@
       </div>
           <div class="row contact-content">
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 hidden-xs">
-              <div class="contact-info">
+             <div class="contact-info">
                 <h2><?php echo $heading_title; ?></h2>
-                <div class="contact-address">
+               <!-- <div class="contact-address contact-address-custom">
                     <p><?php echo $store; ?></p>
                 <ul><li><i class="fa fa-map-marker"></i><span><b><?php echo $text_address; ?></b><br />
                     <?php echo $address; ?></span></li>
@@ -40,7 +40,7 @@
                     <?php echo $fax; ?></span></li>
                     <?php } ?>
                 </ul>
-                  </div>
+                  </div>-->
           </div>
           <?php 
               $html = html_entity_decode($themeConfig['contact_customhtml'][$config->get('config_language_id')]);
