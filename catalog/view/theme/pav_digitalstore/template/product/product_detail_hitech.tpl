@@ -12,7 +12,7 @@
     <?php require( ThemeControlHelper::getLayoutPath( 'common/detail/'.$mode.'.tpl' ) );  ?> 
    
 	<div class="col-xs-12 col-sm-<?php echo $cols[1]; ?> col-md-<?php echo $cols[1]; ?> col-lg-<?php echo $cols[1]; ?>">
-		<h1 class="title-product"><?php echo $heading_title; ?></h1>
+		<h1 class="title-product" style="text-transform: none;"><?php echo $heading_title; ?></h1>
 
          <?php if ($price) { ?>
             <div class="price">
@@ -45,7 +45,7 @@
         <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
         <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script> 
         <!-- Product Short Description module -->
-		<?php if($mmos_shortdescr != '') { ?><blockquote class="blockquote"><?php echo $mmos_shortdescr ; ?></blockquote><?php } ?>
+		<?php if($mmos_shortdescr != '') { ?><blockquote class="blockquote text-links"><?php echo $mmos_shortdescr ; ?></blockquote><?php } ?>
 		<!-- AddThis Button END --> 
         <!--<ul class="list-unstyled description">
             <?php if ($manufacturer) { ?>
@@ -260,7 +260,7 @@
             <li><a href="#tab-customtab" data-toggle="tab"><?php echo $productConfig['product_customtab_name'][$languageID]; ?><span class="triangle-bottomright"></span></a></li>
         <?php } ?>
     </ul>
-    <div class="tab-content">
+    <div class="tab-content text-links">
         <div class="tab-pane active" id="tab-description"><?php echo $description; ?></div>
         <?php if ($attribute_groups) { ?>
             <div class="tab-pane" id="tab-specification">

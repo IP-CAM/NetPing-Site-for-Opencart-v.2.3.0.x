@@ -42,6 +42,12 @@ body {
   color: #6e6e6e;
   /*     font-family: "proximanova-regular"; */
 }
+.text-links a {
+  color: #208E34;
+}
+.text-links a:hover {
+  text-decoration: underline;
+}
 .fs9 {
   font-size: 11px;
 }
@@ -1065,7 +1071,7 @@ font-family: proximanovasemibold;
   padding: 0px 0px;
 }
 .box .box-content-partner {
-  padding: 4px 0px;
+  padding: 5px 0px 0px 0px;
 }
 .box .box-content .products-block {
   margin-left: -15px;
@@ -2055,6 +2061,7 @@ ul.box-filter span {
 #content h1 {
   margin-bottom: 15px;
   padding-bottom: 15px;
+  text-transform: uppercase;
 }
 .page-product-manufacturer-info #content,
 .page-common-home #content,

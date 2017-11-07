@@ -18,7 +18,7 @@
       <?php if ($products) { ?>
       <div class="table-responsive">
 
-      <table class="table table-bordered">
+      <table class="table table-bordered text-links">
         <thead>
           <tr>
             <td colspan="<?php echo count($products) + 1; ?>"><strong><?php echo $text_product; ?></strong></td>
