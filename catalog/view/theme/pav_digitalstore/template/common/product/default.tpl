@@ -39,7 +39,7 @@
 			<?php } ?>-->
 			
 			<!-- Product Short Description module -->
-			<div class="sh-desc-list"><p><?php echo $product['description']; ?></p></div>
+			<div class="sh-desc-list text-links"><p><?php echo $product['description']; ?></p></div>
 			<!--<p><?php echo $product['description']; ?></p>-->
 
 

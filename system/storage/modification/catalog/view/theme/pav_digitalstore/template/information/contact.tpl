@@ -26,7 +26,7 @@
           <div class="row contact-content">
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 hidden-xs">
              <div class="contact-info">
-                <h2><?php echo $heading_title; ?></h2>
+                <h3><?php echo $heading_title; ?></h3>
                <!-- <div class="contact-address contact-address-custom">
                     <p><?php echo $store; ?></p>
                 <ul><li><i class="fa fa-map-marker"></i><span><b><?php echo $text_address; ?></b><br />
@@ -60,7 +60,7 @@
            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal ">              
               <fieldset class="">
-                <h2><?php echo $text_contact; ?></h2>
+                <h3><?php echo $text_contact; ?></h3>
                 <div class="content">
                 <div class="form-group required">
                   <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>

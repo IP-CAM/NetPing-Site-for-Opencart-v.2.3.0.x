@@ -78,7 +78,7 @@
     text-decoration: underline;
 }
 .blog-header a:hover {
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 .blog-header-latest a:hover {
     text-decoration: none;
@@ -89,6 +89,9 @@
 /**
 * Blog Page
 */
+.pav-blog-line {
+    border-bottom: solid 1px #E8E9EA;
+}
 .pav-blog .blog-meta {
     overflow: hidden;
 }
@@ -109,7 +112,14 @@
 .pav-blog .blog-meta > span span {
     font-weight: normal;
 }
-
+.more-blogs li {
+    padding: 6px 0;
+    border-bottom: solid 1px #E8E9EA;
+}
+.more-blogs {
+	text-transform: uppercase;
+	font-weight: 700;
+}
 .pav-blog .blog-content, .pav-blog .blog-bottom { margin-bottom:20px; line-height: 20px;}
 .blog-content a { color: #208E34;}
 .blog-content a:hover { text-decoration: underline;}
@@ -128,6 +138,14 @@
 .pav-blog .blog-tags a{
    margin: 0 2px;
    font-style: italic;
+   
+    margin: 0px 0px 0px 0px;
+    background: none repeat scroll 0 0 #144E5A;
+    border-radius: 2px;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 2;
+    padding: 5px 10px;
 }
 .comment-item {
     padding-bottom:10px;

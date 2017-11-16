@@ -28,7 +28,8 @@
 	$productLayout = DIR_TEMPLATE.$theme.'/template/common/product/'.$listingConfig['product_layout'].'.tpl';	
 ?>
 <div class="box-heading">
-	<span><?php echo $text_related; ?> (<?php echo count($products); ?>)</span>
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+	<span><?php echo $text_related; ?> <!--(<?php echo count($products); ?>)--></span>
 </div>
 <?php if(!empty($products)){ ?>
 	<div id="related" class="slide carousel product-grid" data-interval="0">

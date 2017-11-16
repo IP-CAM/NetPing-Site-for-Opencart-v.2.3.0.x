@@ -325,6 +325,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+.img-responsive-blog{
+  margin-bottom: 12px;
+}
 .img-rounded {
   border-radius: 6px;
 }
@@ -508,6 +511,11 @@ ol ol {
 .list-inline {
   padding-left: 0;
   list-style: none;
+}
+.list-inline-custom {
+  margin-bottom: 14px;
+  margin-left: -18px;
+  margin-top: 25px;
 }
 .list-inline > li {
   display: inline-block;
@@ -1376,6 +1384,7 @@ th {
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
   border: 1px solid #d5d5d5;
+  width: 1%;
 }
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
@@ -2020,9 +2029,12 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-  color: #333;
+  /*color: #333;
   background-color: #ebebeb;
-  border-color: #b6b6b6;
+  border-color: #b6b6b6;*/
+  color: #ffffff;
+  background-color: #208E34;
+  border-color: #208E34;
 }
 .btn-default:active,
 .btn-default.active,

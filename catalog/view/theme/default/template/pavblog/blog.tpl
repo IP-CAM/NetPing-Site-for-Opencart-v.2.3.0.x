@@ -13,28 +13,12 @@
 		<?php } else { ?>
 		<?php $class = 'col-sm-12'; ?>
 		<?php } ?>
-		<div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+		<div id="content" class="<?php echo $class; ?> uppercase"><?php echo $content_top; ?>
 			<h2><?php echo $heading_title; ?></h2>
 
 			<div class="pav-blog">
-				<div class="image">
-						<?php if( $blog['thumb_large'] ) { ?>
-						<img class="img-responsive space-10 space-padding-r20" src="<?php echo $blog['thumb_large'];?>" title="<?php echo $blog['title'];?>" align="left"/>
-					<?php } ?>
-				</div>		
-				<div class="blog-content">
-					<div class="description"><?php echo $description;?></div>
-					<div class="content-wrap">
-					<?php echo $content;?>
-					</div>
-					<?php if( $blog['video_code'] ) { ?>
-					<div class="pav-video"><?php echo html_entity_decode($blog['video_code'], ENT_QUOTES, 'UTF-8');?></div>
-					<?php } ?>
-				</div>
-				<div class="clearfix"></div>
-				<hr>
-
-				<ul class="list-inline">
+			
+			    <ul class="list-inline list-inline-custom blog-content">
 				  	<li><?php if( $blog_show_author ) { ?>
 					<span class="author"><b><?php echo $objlang->get("text_write_by");?></b> <?php echo $blog['author'];?></span>
 					<?php } ?>
@@ -67,6 +51,27 @@
 					<?php } ?>	
 					</li>
 				</ul>
+				
+				<div class="image image-blog">
+						<?php if( $blog['thumb_large'] ) { ?>
+						<img class="img-responsive space-10 space-padding-r20 img-responsive-blog" src="<?php echo $blog['thumb_large'];?>" title="<?php echo $blog['title'];?>" align="left"/>
+					<?php } ?>
+				</div>
+				
+				<div class="blog-content">
+					<div class="description"><?php echo $description;?></div>
+					<div class="content-wrap">
+					<?php echo $content;?>
+					</div>
+					<?php if( $blog['video_code'] ) { ?>
+					<div class="pav-video"><?php echo html_entity_decode($blog['video_code'], ENT_QUOTES, 'UTF-8');?></div>
+					<?php } ?>
+				</div>
+				<div class="clearfix"></div>
+				
+				<!-- AddThis Button BEGIN -->
+                <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-515eeaf54693130e"></script> 
 
 				<hr>
 
@@ -74,7 +79,7 @@
 				 <div class="blog-tags">
 					<b><?php echo $objlang->get('text_tags');?></b>
 					<?php 	$i = 1; foreach( $tags as $tag => $tagLink ) { ?>
-						<a class="color" href="<?php echo $tagLink; ?>" title="<?php echo $tag; ?>"><?php echo $tag; ?></a> <?php if($i<count($tags)) { echo ","; }; ?>
+						<a class="color" href="<?php echo $tagLink; ?>" title="<?php echo $tag; ?>"><?php echo $tag; ?></a> <?php if($i<count($tags)) /*{ echo ","; }*/; ?>
 					<?php $i++; }  ?>
 					<hr>
 				 </div>
@@ -84,7 +89,7 @@
 					<?php if( !empty($samecategory) ) { ?>
 					<div class="col-sm-6 col-lg-6 col-sm-6 col-xs-12">
 						<h4><?php echo $objlang->get('text_in_same_category');?></h4>
-						<ul class="list-arrow">
+						<ul class="list-arrow more-blogs">
 							<?php foreach( $samecategory as $item ) { ?>
 							<li><a href="<?php echo $objurl->link('pavblog/blog',"blog_id=".$item['blog_id']);?>"><?php echo $item['title'];?></a></li>
 							<?php } ?>
@@ -94,7 +99,7 @@
 					<?php if( !empty($related) ) { ?>
 					<div class="col-sm-6 col-lg-6 col-sm-6 col-xs-12">
 						<h4><?php echo $objlang->get('text_in_related_by_tag');?></h4>
-						<ul class="list-arrow">
+						<ul class="list-arrow more-blogs">
 							<?php foreach( $related as $item ) { ?>
 							<li><a href="<?php echo $objurl->link('pavblog/blog',"blog_id=".$item['blog_id']);?>"><?php echo $item['title'];?></a></li>
 							<?php } ?>
@@ -106,7 +111,7 @@
 				<div class="pav-comment">
 					<?php if( $blog_show_comment_form ) { ?>
 						<?php if( $comment_engine == 'diquis' ) { ?>
-					    <div id="disqus_thread"></div>
+					    <div id="disqus_thread" style="font-family: proximanova-regular;"></div>
 						<script type="text/javascript">
 							//CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE 
 							var disqus_shortname = '<?php echo $diquis_account;?>'; // required: replace example with your forum shortname

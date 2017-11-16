@@ -3,7 +3,7 @@
 		<img src="<?php echo $blog['thumb'];?>" title="<?php echo $blog['title'];?>" alt="<?php echo $blog['title'];?>" style="text-align:left"/>
 		<?php } ?>
 <div class="row">
-	<div class="blog-meta col-lg-3 col-md-3 col-sm-4 col-xs-12">
+	<div class="blog-meta col-lg-3 col-md-3 col-sm-4 col-xs-12 blog-content">
 		<ul>
 		<?php if( $cat_show_created ) { ?>
 		<li class="created">
@@ -34,7 +34,7 @@
 <?php if( $cat_show_title ) { ?>
 	<div class="blog-header clearfix">
 	
-	<h3 class="blog-title">	<a style="color: #208E34;" href="<?php echo $blog['link'];?>" title="<?php echo $blog['title'];?>"><?php echo $blog['title'];?></a></h3>
+	<h3 class="blog-title">	<a href="<?php echo $blog['link'];?>" title="<?php echo $blog['title'];?>"><?php echo $blog['title'];?></a></h3>
 	</br>
 	</div>
 	<?php } ?>
