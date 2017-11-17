@@ -14,7 +14,7 @@
     <?php } ?>  
 	
 <td><div class="product-meta">
-			<h4 class="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+			<h2 class="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h2>
 			
 			<?php if ($product['price']) { ?>
 			<div class="price" itemtype="http://schema.org/Offer" itemscope itemprop="offers">

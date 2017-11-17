@@ -303,7 +303,8 @@ textarea {
   background-image: none;
 }
 a {
-  color: #3e3d39;
+  color: #282b2f;
+  /*color: #3e3d39;*/
   /*color: #000000;*/
   text-decoration: none;
 }

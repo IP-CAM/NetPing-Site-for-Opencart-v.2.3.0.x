@@ -94,7 +94,7 @@
               <li><a href="../#">News</a></li>
 			  <li><a href="../#">Tutorial</a></li>
 			  <li><a href="../#">FAQ</a></li>
-			  <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
+			  <!--<li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>-->
 			  <?php } ?>
             </ul>
            </div>

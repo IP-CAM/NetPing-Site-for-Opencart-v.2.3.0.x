@@ -39,7 +39,8 @@ body {
   overflow-x: hidden;
   background-color: #f5f6f7;
   line-height: 18px;
-  color: #6e6e6e;
+  /*color: #6e6e6e;*/
+  color: #282b2f;
   /*     font-family: "proximanova-regular"; */
 }
 .text-links a {
@@ -1748,11 +1749,22 @@ font-family: proximanovasemibold;
 }
 .product-block .name {
   font-size: 16px;
+  /*font-size: 22px;*/
   text-transform: none;
   text-decoration: none;
   display: block;
   margin-bottom: 12px;
   font-family: proximanovalight;
+  font-weight: bold;
+}
+.product-block .name-custom {
+  /*font-size: 16px;*/
+  font-size: 22px;
+  text-transform: none;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 12px;
+  /*font-family: proximanovalight;*/
   font-weight: bold;
 }
 .product-block .image {
@@ -2336,7 +2348,8 @@ ul.box-filter span {
   padding: 20px;
 }
 .product-info h1 {
-  font-size: 22px;
+  /*font-size: 22px;*/
+  font-size: 27px;
 }
 .product-info .cart .minimum {
   padding-top: 5px;
@@ -3147,7 +3160,7 @@ ul.box-filter span {
 }
 .pav-megamenu .mega-col .mega-col-inner > ul > li > a {
   clear: both;
-  color: #555555;
+  /*color: #555555;*/
   display: block;
   line-height: 20px;
 }

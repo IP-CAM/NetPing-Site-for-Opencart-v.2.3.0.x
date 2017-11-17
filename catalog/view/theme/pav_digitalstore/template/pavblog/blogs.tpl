@@ -17,7 +17,7 @@
                         if( count($leading_blogs) ) { ?>
                         <div class="leading-blogs clearfix">
                             <?php foreach( $leading_blogs as $key => $blog ) { $key = $key + 1;?>
-                            <div class="pavcol<?php echo $cols;?>">
+                            <div class="pavcol<?php echo $cols;?> pav-blog-line">
                                 <?php require( '_item.tpl' ); ?>
                             </div>
                             <?php if( ( $key%$cols==0 || $cols == count($leading_blogs)) ){ ?>
@@ -34,7 +34,7 @@
                         <div class="secondary clearfix">
 
                             <?php foreach( $secondary_blogs as $key => $blog ) {  $key = $key+1; ?>
-                            <div class="pavcol<?php echo $cols;?>">
+                            <div class="pavcol<?php echo $cols;?> pav-blog-line">
                                 <?php require( '_item.tpl' ); ?>
                             </div>
                             <?php if( ( $key%$cols==0 || $cols == count($leading_blogs)) ){ ?>

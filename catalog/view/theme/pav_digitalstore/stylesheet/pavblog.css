@@ -83,6 +83,9 @@
 .blog-header-latest a:hover {
     text-decoration: none;
 }
+.blog-header h2 {
+    text-transform: uppercase;
+}
 .blog-header h3 {
     text-transform: uppercase;
 }

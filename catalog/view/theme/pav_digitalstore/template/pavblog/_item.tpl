@@ -34,7 +34,7 @@
 <?php if( $cat_show_title ) { ?>
 	<div class="blog-header clearfix">
 	
-	<h3 class="blog-title">	<a href="<?php echo $blog['link'];?>" title="<?php echo $blog['title'];?>"><?php echo $blog['title'];?></a></h3>
+	<h2 class="blog-title">	<a href="<?php echo $blog['link'];?>" title="<?php echo $blog['title'];?>"><?php echo $blog['title'];?></a></h2>
 	</br>
 	</div>
 	<?php } ?>
