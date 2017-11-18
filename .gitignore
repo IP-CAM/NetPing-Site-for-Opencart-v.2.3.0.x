@@ -6,7 +6,8 @@
 admin/config.php
 !index.html
 image/cache/
-/system/storage/logs/*
+/system/storage/logs/*.log
+/system/storage/logs/*.html
 
 # vQmod log files
 vqmod/logs/*
