@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<theme>
+	<footer>
+		 <title>Footer Block</title>
+		 <description></description>	
+	 	  <module>
+	 	 	<title>Social</title>
+	 	 	<field>
+	 	 		<name>widget_social</name>
+	 	 		<label>Social</label>
+	 	 		<type>textarea</type>
+	 	 		<lang>1</lang>
+	 	 		<default> <![CDATA[
+	 	 			<div class="social">
+					<p><a class="pavcol-sm-5 col-md-4 col-sm-4 col-xs-4" href="#" title=""><i class="fa fa-pinterest">&nbsp;</i>Pinterest</a> <a class="pavcol-sm-5 col-md-4 col-sm-4 col-xs-4" href="#" title=""><i class="fa fa-facebook">&nbsp;</i>Facebook</a> <a class="pavcol-sm-5 col-md-4 col-sm-4 col-xs-4" href="#" title=""><i class="fa fa-google-plus">&nbsp;</i>Google+</a> <a class="pavcol-sm-5 col-md-4 col-sm-4 col-xs-4" href="#" title=""><i class="fa fa-twitter">&nbsp;</i>Twitter</a> <a class="pavcol-sm-5 col-md-4 col-sm-4 col-xs-4" href="#" title=""><i class="fa fa-youtube">&nbsp;</i>Youtube</a></p></div>
+
+	 	 		 ]]> </default>		
+	 		</field>
+	 	 </module>	
+	 	  <module>
+	 	 	<title>Contact Us</title>
+	 	 	<field>
+	 	 		<name>widget_contact_us</name>
+	 	 		<label>Contact Us</label>
+	 	 		<type>textarea</type>
+	 	 		<lang>1</lang>
+	 	 		<default> <![CDATA[
+					<p>If your question is not answered there, please use one of the contact methods below.</p>
+					<ul>
+						<li><span class="fa fa-map-marker">&nbsp;</span>Proin gravida, velit auctor aliquet</li>
+						<li><span class="fa fa-mobile-phone">&nbsp;</span>Phone: +01 888 (000) 1234</li>
+						<li><span class="fa fa-envelope">&nbsp;</span>Email: pavdigitaltore@gmail.com</li>
+					</ul>
+	 	 		 ]]> </default>		
+	 		</field>
+	 	 </module>
+	 	  <module>
+	 	 	<title>Paypal</title>
+	 	 	<field>
+	 	 		<name>widget_paypal</name>
+	 	 		<label>Paypal</label>
+	 	 		<type>textarea</type>
+	 	 		<lang>1</lang>
+	 	 		<default> <![CDATA[
+					<img alt="" src="image/catalog/paypal.png" />
+	 	 		 ]]> </default>		
+	 		</field>
+	 	 </module>
+
+	</footer>	
+	
+</theme>
+
