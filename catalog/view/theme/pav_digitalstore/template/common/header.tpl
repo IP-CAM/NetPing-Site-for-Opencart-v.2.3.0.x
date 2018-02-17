@@ -126,6 +126,10 @@ $logoType = $helper->getConfig('logo_type','logo-theme');
 <?php echo $analytic; ?>
 <?php } ?>
 
+<!-- MailChimp: Connect Your Site -->
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/7179e0fbe457bf650bded2764/86a78d9dea9b93f0f28b21c2b.js");</script>
+<!-- /MailChimp: Connect Your Site -->
+
 </head>
 <body class="<?php echo $class; ?> <?php echo $helper->getPageClass();?> layout-<?php echo $template_layout; ?>">
 

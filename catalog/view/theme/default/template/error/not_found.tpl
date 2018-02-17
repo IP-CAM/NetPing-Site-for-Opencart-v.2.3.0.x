@@ -15,9 +15,10 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
-      <p><?php echo $text_error; ?></p>
+	  <div><img src="../image/catalog/Eng_site/catalog/error/PAGE_CANNOT_BE_FOUND.png" alt="" /></div>
+      <!--<p><?php echo $text_error; ?></p>-->
       <div class="buttons clearfix">
-        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary uppercase-mode"><?php echo $button_continue; ?></a></div>
       </div>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>

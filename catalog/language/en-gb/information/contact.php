@@ -19,7 +19,7 @@ $_['entry_email']    = 'E-Mail';
 $_['entry_enquiry']  = 'Enquiry';
 
 // Email
-$_['email_subject']  = 'Enquiry from %s (netpingdevice.com)';
+$_['email_subject']  = 'Enquiry from %s - netpingdevice.com';
 
 // Errors
 $_['error_name']     = 'Name must be between 3 and 32 characters!';

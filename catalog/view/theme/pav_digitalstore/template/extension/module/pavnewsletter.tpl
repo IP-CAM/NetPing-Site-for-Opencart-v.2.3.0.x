@@ -1,7 +1,7 @@
 <div class="<?php echo $prefix; ?> box newsletter_block" id="newsletter_<?php echo $position.$module;?>">
 	<div class="box-heading"><span><?php echo $objlang->get("entry_newsletter");?></span></div>
 <p class="description"><?php echo html_entity_decode( $description );?></p>
-	<div class="block_content">
+<!--<div class="block_content">
 	
 		<div class="social hidden"><?php echo html_entity_decode( $social );?></div>
 			<form id="formNewLestter" method="post" action="<?php echo $action; ?>">
@@ -9,11 +9,28 @@
 					<input type="submit" name="submitNewsletter" class="button_mini btn btn-theme-primary" value="<?php echo $objlang->get("button_ok");?>"/>	
 					<input type="hidden" value="1" name="action"/>
 					<div class="valid"></div>		
-		</form>
-	</div>
+		    </form>
+	    </div>
 
 
+</div>-->
+
+
+<!-- Begin MailChimp Signup Form -->
+
+<div id="mc_embed_signup">
+<form action="https://netpingdevice.us9.list-manage.com/subscribe/post?u=7179e0fbe457bf650bded2764&amp;id=595bd70e4b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate newsletter_block"target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	   <input type="email" class="inputNew" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Your email address" required>
+       <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+       <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7179e0fbe457bf650bded2764_595bd70e4b" tabindex="-1" value=""></div>
+       <div class="clear"><input type="submit" class="button_mini btn btn-theme-primary" value="Ok" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
 </div>
+
+<!--End mc_embed_signup-->
+
 
 <script type="text/javascript"><!--
 
@@ -44,7 +61,7 @@
 					$('.valid').html("<div class=\"warning_inline alert alert-danger\">"+json['error']+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button></div>");
 				}
 				if (json['success']) {
-					$('.valid').html("<div class=\"success_inline alert alert-success\">"+json['success']+"<button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button></div>");
+					$('.valid').html("<div class=\"success_inline alert alert-success\" style=\"color: #282b2f;\">"+json['success']);
 				}
 			}
 		});

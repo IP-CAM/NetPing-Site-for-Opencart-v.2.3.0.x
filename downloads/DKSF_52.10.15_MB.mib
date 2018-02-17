@@ -1,4 +1,4 @@
-DKSF-202-10-X-X-1 DEFINITIONS ::= BEGIN
+DKSF-52-10-X-X-1 DEFINITIONS ::= BEGIN
  
 IMPORTS
         enterprises,
@@ -21,12 +21,20 @@ IMPORTS
                 
  
 netPing2PWR220SMSv2 MODULE-IDENTITY 
-        LAST-UPDATED "201608260000Z"  
+        LAST-UPDATED "201712230000Z"  
         ORGANIZATION "Alentis Electronics" 
         CONTACT-INFO 
-                "support@netping.ru" 
+                "developers@netping.ru" 
         DESCRIPTION 
                 "Generic MIB for NetPing remote sensing and control" 
+
+        REVISION "201712230000Z"
+        DESCRIPTION        
+                "scheduleAndLogic(6) value added for npRelayTrapMode"
+                
+        REVISION "201705250000Z"
+        DESCRIPTION        
+                "scheduleAndLogic(6) value added for npRelayMode"
                 
         REVISION "201608260000Z"   
         DESCRIPTION                
@@ -40,17 +48,17 @@ netPing2PWR220SMSv2 MODULE-IDENTITY
 
         REVISION "201508170000Z"   
         DESCRIPTION 
-                "added npBatteryTrap,
-                 changed npIoLevelOut value definitions"    
+                "changed npIoLevelOut value definitions"    
                 
         REVISION "201411140000Z"   
         DESCRIPTION 
                 "bugfix npRelayN range changed to (1..2)
+                 bugfix module name
                  value name npNormRange changed to npSafeRange"
                 
-        REVISION "201411060000Z"   
+        REVISION "201408210000Z"   
         DESCRIPTION 
-                "rewrite for DKSF202.8, added npBattery branch"
+                "rewrite for DKSF52.8"
 
         REVISION "201404140000Z"   
         DESCRIPTION 
@@ -58,7 +66,7 @@ netPing2PWR220SMSv2 MODULE-IDENTITY
                 
         REVISION "201402020000Z"   
         DESCRIPTION 
-                "npRelayMode valid values changed, (3) excluded "                  
+                "npRelayMode valid values changed"                  
                 
         REVISION "201401290000Z"   
         DESCRIPTION 
@@ -110,7 +118,7 @@ netPing2PWR220SMSv2 MODULE-IDENTITY
         DESCRIPTION 
                 "SMIv2-style rewrite" 
                 
-        ::= { lightcom 202 }
+        ::= { lightcom 52 }
 
 
                 
@@ -168,7 +176,8 @@ npRelayMode  OBJECT-TYPE
                    watchdog(2),
                    schedule(3),
                    scheduleAndWatchdog(4),
-                   logic(5)
+                   logic(5),
+                   scheduleAndLogic(6)
      }
      MAX-ACCESS     read-write
      STATUS     current
@@ -178,7 +187,8 @@ npRelayMode  OBJECT-TYPE
                       2 - watchdog
                       3 - schedule
                       4 - both schedule and watchdog (while switched on by schedule)
-                      5 - logic"
+                      5 - logic
+                      6 - both schedule and logic (while switched on by schedule)"
      ::={npRelayEntry  2}
      
 npRelayStartReset  OBJECT-TYPE
@@ -246,7 +256,8 @@ npRelayTrapMode  OBJECT-TYPE
                    watchdog(2),
                    schedule(3),
                    scheduleAndWatchdog(4),
-                   logic(5)
+                   logic(5),
+                   scheduleAndLogic(6)
      }
      MAX-ACCESS     read-write
      STATUS     current
@@ -256,7 +267,8 @@ npRelayTrapMode  OBJECT-TYPE
                       2 - watchdog
                       3 - schedule
                       4 - both schedule and watchdog (while switched on by schedule)
-                      5 - logic"
+                      5 - logic
+                      6 - both schedule and logic (while switched on by schedule)"
      ::={npRelayTrapData  2}
      
 npRelayTrapMemo  OBJECT-TYPE
@@ -824,65 +836,6 @@ npRelHumTrap NOTIFICATION-TYPE
         "Status of Relative Humidity RH sensor has changed!"
     ::= { npRelHumTrapPrefix 1 }
 
-
-
-
-npGsm  OBJECT IDENTIFIER::={lightcom 3800}
-npGsmInfo OBJECT IDENTIFIER::={npGsm 1}
-
-npGsmFailed  OBJECT-TYPE 
-    SYNTAX     INTEGER {
-                        ok (0), 
-                        failed (1),
-                        fatalError (2)
-                       }
-    MAX-ACCESS  read-only
-    STATUS     current 
-    DESCRIPTION  "Firmware's GSM module status" 
-    ::= { npGsmInfo 1 }   
-
-npGsmRegistration OBJECT-TYPE 
-    SYNTAX     INTEGER {
-                        impossible (0), 
-                        homeNetwork (1),
-                        searching (2),
-                        denied (3),
-                        unknown (4),
-                        roaming (5),
-                        infoUpdate (255)
-                       }
-    MAX-ACCESS  read-only
-    STATUS     current 
-    DESCRIPTION  "Status of modem registration in GSM network (AT+CREG? result)" 
-    ::= { npGsmInfo 2 } 
-    
-npGsmStrength  OBJECT-TYPE 
-    SYNTAX     INTEGER (0..255)
-    MAX-ACCESS  read-only
-    STATUS     current 
-    DESCRIPTION  "GSM signal strength.
-                  0..31 = 0..100%, 
-                  99 = unknown or n/a, 
-                  255 = updating info" 
-    ::= { npGsmInfo 3 } 
-
-
-npGsmTraps      OBJECT IDENTIFIER::={npGsm 2} 
-npGsmTrapPrefix OBJECT IDENTIFIER::={npGsmTraps 0} 
-
-npGsmTrap NOTIFICATION-TYPE
-    OBJECTS { 
-          npGsmFailed,
-          npGsmRegistration,
-          npGsmStrength
-        }
-    STATUS  current
-    DESCRIPTION
-        "GSM modem or SMS firmware problems"
-    ::= { npGsmTrapPrefix 1 }
-
-
-    
 npIr  OBJECT IDENTIFIER::={lightcom 7900}
 npIrCtrl OBJECT IDENTIFIER::={npIr 1}
 
@@ -919,52 +872,6 @@ npIrStatus  OBJECT-TYPE
     ::= { npIrCtrl 3 } 
         
     
-npBattery OBJECT IDENTIFIER::={ lightcom 3900 }
-npBatteryInfo OBJECT IDENTIFIER::={npBattery 1}
-
-npBatteryPok   OBJECT-TYPE 
-    SYNTAX     INTEGER {
-                  batteryPower  (0),
-                  externalPower (1)
-                       }
-    MAX-ACCESS read-only 
-    STATUS     current 
-    DESCRIPTION  "Power source" 
-    ::= { npBatteryInfo 1 }   
-    
-npBatteryLevel   OBJECT-TYPE 
-    SYNTAX     INTEGER (0..100)
-    MAX-ACCESS read-only 
-    STATUS     current 
-    DESCRIPTION  "Battery charge, approximate value, in percent.
-                  Valid only if npBatteryPok = 0" 
-    ::= { npBatteryInfo 2 }  
-    
-npBatteryChg   OBJECT-TYPE 
-    SYNTAX     INTEGER {
-                  batteryChargingSuspended (0),
-                  batteryFastCharging (1)
-                    }
-    MAX-ACCESS read-only 
-    STATUS     current 
-    DESCRIPTION  "Battery chargeing status.
-                  0 if charging suspended or battery is full,
-                  1 while LiPo fast charging." 
-    ::= { npBatteryInfo 3 }
-
-npBatteryTraps   OBJECT IDENTIFIER::={npBattery 2} 
-npBatteryTrapPrefix OBJECT IDENTIFIER::={npBatteryTraps 0} 	
-
-npBatteryTrap NOTIFICATION-TYPE
-    OBJECTS { 
-      npBatteryPok,
-      npBatteryLevel
-        }
-    STATUS  current
-    DESCRIPTION
-        "Status of PowerOk has changed!"
-    ::= { npBatteryTrapPrefix 1 }    
-
     
 npReboot OBJECT IDENTIFIER::={ lightcom 911 }   
 

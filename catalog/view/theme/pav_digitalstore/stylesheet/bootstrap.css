@@ -402,7 +402,7 @@ cite {
   text-align: left;
 }
 .text-right {
-  text-align: right;
+  text-align: center;
 }
 .text-center {
   text-align: center;
@@ -1627,7 +1627,9 @@ fieldset[disabled] .form-control {
   background-color: #7f7f7f;
 }
 textarea.form-control {
-  height: 278px;
+  height: 279px;
+  /*min-width: 458px;*/
+  max-width: 100%;
 }
 .form-group {
   margin-bottom: 15px;
@@ -1667,6 +1669,7 @@ textarea.form-control {
   vertical-align: middle;
   font-weight: normal;
   cursor: pointer;
+  padding-top: 9px;
 }
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
@@ -2061,9 +2064,12 @@ fieldset[disabled] .btn-default.active {
   border-color: #d5d5d5;
 }
 .btn-primary {
-  color: #6e6e6e;
+  color: #282b2f;
   border: 1px solid #c9c9c9;
   background-color: #fff;
+}
+.uppercase-mode {
+  text-transform: uppercase;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -4181,11 +4187,19 @@ border-radius: @border-radius-base; */
   margin-right: 3px;
   /*  .border-radius(@border-radius-base); */
   border: 1px solid #208E34;
+  color: #333;
+  border-color: #d5d5d5;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
   border-bottom-right-radius: 2px;
   border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 .pagination > li > a:hover,
 .pagination > li > span:hover,
@@ -4193,6 +4207,7 @@ border-radius: @border-radius-base; */
 .pagination > li > span:focus {
   color: #fff;
   background: #208E34;
+  border-color: #208E34;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -4494,6 +4509,9 @@ a.thumbnail:focus {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   /* color: #468847; */
+}
+.text-color {
+  color: #282b2f;
 }
 .alert-success hr {
   border-top-color: #c9e2b3;
@@ -4935,6 +4953,9 @@ a.list-group-item:focus {
 .well-sm {
   padding: 9px;
   border-radius: 3px;
+}
+.close-custom {
+  padding: -1px;
 }
 .close {
   float: right;

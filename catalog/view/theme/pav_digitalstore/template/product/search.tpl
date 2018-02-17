@@ -60,8 +60,8 @@
           <?php } ?>
           <?php echo $entry_description; ?></label>
       </p>
-      <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="button" />
-      <h2><?php echo $text_search; ?></h2>
+      <input type="button" value="<?php echo $button_search; ?>" id="button-search" class="btn btn-primary uppercase-mode" />
+      <h2 style="padding-top: 40px;"><?php echo $text_search; ?></h2>
       <?php if ($products) { ?>
        <?php require( ThemeControlHelper::getLayoutPath( 'common/product_collection.tpl' ) );  ?> 
      
