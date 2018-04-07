@@ -34,7 +34,7 @@ $_['text_leave_a_comment'] = 'Leave A Comment';
   *
   */
   $_['filter_blog_header_title'] = 'Filter Blogs By %s';
-  $_['blogs_latest_header_title'] = 'Latest Blogs';
+  $_['blogs_latest_header_title'] = 'NetPing Solution - IT Blog';
 
   /*blogcategory module*/
   // Heading 

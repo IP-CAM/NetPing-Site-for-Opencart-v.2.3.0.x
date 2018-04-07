@@ -1,5 +1,5 @@
 <div class="box">
-	<h3 class="box-heading"><i class="fa fa-align-justify"></i><span><?php echo $heading_title; ?></span></h3>
+	<h3 style="margin: 0px 0 0 0" class="box-heading"><i class="fa fa-align-justify"></i><span><?php echo $heading_title; ?></span></h3>
 	<div class="box-content-blog" id="pav-categorymenu" >
 
 		 <?php echo $tree;?>
