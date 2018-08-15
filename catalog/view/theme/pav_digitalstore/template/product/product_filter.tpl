@@ -3,7 +3,7 @@
     <div class="display hidden-xs">
     <span><?php echo $objlang->get('text_display'); ?></span>    
         <button type="button" id="list-view" class="btn btn-switch fa fa-th-list" data-toggle="tooltip" title="<?php echo $button_list; ?>"></button>
-        <button type="button" id="grid-view" class="btn btn-switch fa fa-th-large" data-toggle="tooltip" title="<?php echo $button_grid; ?>"></button>      
+  <!--      <button type="button" id="grid-view" class="btn btn-switch fa fa-th-large" data-toggle="tooltip" title="<?php echo $button_grid; ?>"></button>     --> 
     </div>    
     <div class="filter-right">
      <div class="product-compare pull-right"><a href="<?php echo $compare; ?>" class="btn btn-theme-primary" id="compare-total"><?php echo $text_compare; ?></a></div>     

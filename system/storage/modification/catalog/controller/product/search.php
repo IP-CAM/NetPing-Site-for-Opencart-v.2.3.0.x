@@ -264,22 +264,29 @@ class ControllerProductSearch extends Controller {
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
 
+
 			foreach ($results as $result) {
-				if ($result['image']) {
+
+				if (isset($result['image']) && isset($result['product_id']) && $result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
 $image = $image .'" id="search_'.$result['product_id'].'"';
-				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
-$image = $image .'" id="search_'.$result['product_id'].'"';
-				}
+				}  elseif (isset($result['image']) && isset($result['blog_id']) && $result['image']) {
+                    $image = $this->model_tool_image->resize($result['image'], 1300, 868);
+                } else {
+                    $image = $this->model_tool_image->resize('placeholder.png' , 1300, 868);
+                }
 
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+				    if (isset($result['price'])){
+                        $price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+                    } else {
+                        $price = false;
+                    }
 				} else {
 					$price = false;
 				}
 
-				if ((float)$result['special']) {
+				if (isset($result['special']) && (float)$result['special']) {
 					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 				} else {
 					$special = false;
@@ -292,22 +299,28 @@ $image = $image .'" id="search_'.$result['product_id'].'"';
 				}
 
 				if ($this->config->get('config_review_status')) {
-					$rating = (int)$result['rating'];
+				    if (isset($result['rating'])) {
+                        $rating = (int)$result['rating'];
+                    } else {
+                        $rating = false;
+                    }
+
 				} else {
 					$rating = false;
 				}
-
+//pavblog/category
+//blog
 				$data['products'][] = array(
-					'product_id'  => $result['product_id'],
+					'product_id'  => isset($result['product_id']) ? $result['product_id'] :$result['blog_id'],
 					'thumb'       => $image,
-					'name'        => $result['name'],
+					'name'        => isset($result['name']) ? $result['name'] : $result['title'],
 					'description' => isset($result['mmos_shortdescr']) && $result['mmos_shortdescr'] != '' && $mmos_shortdescr_set['status'] == 1  && isset($mmos_shortdescr_set["prelated"]) ?  $result['mmos_shortdescr'] : utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,
-					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
-					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+					'minimum'     => isset($result['minimum']) && $result['minimum'] > 0 ? $result['minimum'] : 1,
+					'rating'      => isset($result['rating'])? $result['rating'] : 0,
+					'href'        => isset($result['product_id']) ? $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url) : $this->url->link('pavblog/blogs', 'blog_id=' .$result['blog_id'], $url) ,
 				);
 			}
 

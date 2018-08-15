@@ -34,7 +34,7 @@ $_['text_leave_a_comment'] = 'Leave A Comment';
   *
   */
   $_['filter_blog_header_title'] = 'Filter Blogs By %s';
-  $_['blogs_latest_header_title'] = 'NetPing Solution - IT Blog';
+  $_['blogs_latest_header_title'] = 'NetPing Solution | Professional IT Blog for Server Room Monitoring and Power Distribution Units';
 
   /*blogcategory module*/
   // Heading 

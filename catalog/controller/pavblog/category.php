@@ -250,8 +250,9 @@
 					
 					$blogs[$key]['link'] =  $this->url->link( 'pavblog/blog','blog_id='.$blog['blog_id'] );
 				}
-				
-				
+
+
+
 				$leading_blogs 		 = array_slice( $blogs,0, $limit_leading_blogs );
 				$secondary_blogs 	 = array_splice( $blogs, $limit_leading_blogs, count($blogs) );
 		

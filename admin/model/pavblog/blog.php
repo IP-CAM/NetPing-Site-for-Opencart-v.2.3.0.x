@@ -27,41 +27,59 @@ class ModelPavblogblog extends Model {
 		if( isset($filter['category_id']) && (int)$filter['category_id'] > 1 ){
 			$query .= ' AND b.category_id='.$filter['category_id'];
 		}
-		
-		if (isset($data['start']) || isset($data['limit'])) {
-			if ($data['start'] < 0) {
-				$data['start'] = 0;
-			}				
 
-			if ($data['limit'] < 1) {
-				$data['limit'] = 20;
-			}	
-		 
-			$query .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
-		}
-			
-			
+
+        if (isset($data['start']) || isset($data['limit'])) {
+            if ($data['start'] < 0) {
+                $data['start'] = 0;
+            }
+
+            if ($data['limit'] < 1) {
+                $data['limit'] = 20;
+            }
+
+            $query .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+        }
+
 		$query = $this->db->query( $query );
 		$blogs = $query->rows;
 		return $blogs; 
 	}
 	
 	public function getTotal( $data, $filter=array() ){
-		$query = 'SELECT count(b.blog_id) as total FROM '.DB_PREFIX."pavblog_blog b LEFT JOIN ".DB_PREFIX."pavblog_blog_description bd ON b.blog_id=bd.blog_id LEFT JOIN "
-				.DB_PREFIX.'pavblog_category c ON c.category_id=b.category_id';
-				
-		$query .=" WHERE language_id=".(int)$this->config->get('config_language_id');
-		if( isset($filter['title']) && ($filter['title']) ){
-			$query .= ' AND bd.title like "%'.$this->db->escape($filter['title']).'%"';
-		}
-		if( isset($filter['category_id']) && (int)$filter['category_id'] > 1 ){
-			$query .= ' AND b.category_id='.$filter['category_id'];
-		}
-		
-		$query = $this->db->query( $query );
-		$blogs = $query->row;
-		return $blogs['total']; 
-	}
+//		$query = 'SELECT count(b.blog_id) as total FROM '.DB_PREFIX."pavblog_blog b LEFT JOIN ".DB_PREFIX."pavblog_blog_description bd ON b.blog_id=bd.blog_id LEFT JOIN "
+//				.DB_PREFIX.'pavblog_category c ON c.category_id=b.category_id';
+//
+//		$query .=" WHERE language_id=".(int)$this->config->get('config_language_id');
+//		if( isset($filter['title']) && ($filter['title']) ){
+//			$query .= ' AND bd.title like "%'.$this->db->escape($filter['title']).'%"';
+//		}
+//		if( isset($filter['category_id']) && (int)$filter['category_id'] > 1 ){
+//			$query .= ' AND b.category_id='.$filter['category_id'];
+//		}
+//
+//		$query = $this->db->query( $query );
+//		$blogs = $query->row;
+//		return $blogs['total'];
+        $query = 'SELECT count(b.blog_id) as total FROM '.DB_PREFIX."pavblog_blog b LEFT JOIN ".DB_PREFIX."pavblog_blog_description bd ON b.blog_id=bd.blog_id LEFT JOIN "
+            .DB_PREFIX.'pavblog_category c ON c.category_id=b.category_id';
+
+        $query .=" WHERE language_id=".(int)$this->config->get('config_language_id');
+        if( isset($filter['title']) && ($filter['title']) ){
+            $query .= ' AND bd.title like "%'.$this->db->escape($filter['title']).'%"';
+        }
+        if( isset($filter['category_id']) && (int)$filter['category_id'] > 1 ){
+            $query .= ' AND b.category_id='.$filter['category_id'];
+        }
+
+
+
+
+        $query = $this->db->query( $query );
+        $blogs = $query->row;
+
+        return $blogs['total'];
+    }
 
 	/**
 	 *
@@ -142,6 +160,8 @@ class ModelPavblogblog extends Model {
 				$this->db->query( $sql );					
 			}
 		}
+//		TODO Включить для сео урлов.
+        $this->cache->delete('seo_pro');
 		return $data['pavblog_blog']['blog_id'];
 	}
 	

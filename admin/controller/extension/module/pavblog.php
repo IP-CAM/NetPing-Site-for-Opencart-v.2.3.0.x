@@ -431,6 +431,7 @@ class ControllerExtensionModulePavblog extends Controller {
 		// save to database
 		$issubmitfalse = false; 
 		if (isset($this->request->post) && isset($this->request->post['pavblog_blog']) ) {
+
 			if( $this->validateBlog() ) {
 				$id = $this->model_pavblog_blog->saveData( $this->request->post );
 				$action = $this->request->post['action_mode'];
@@ -547,35 +548,43 @@ class ControllerExtensionModulePavblog extends Controller {
 		$this->mdata['action_reset'] = $this->url->link('extension/module/pavblog/blogs', 'reset=true&token=' . $this->session->data['token'], 'SSL');
 
 
-		if (isset($this->request->get['page'])) {
-			$page = $this->request->get['page'];
-		} else {
-			$page = 1;
-		}
+        if (isset($this->request->get['page'])) {
+            $page = $this->request->get['page'];
+        } else {
+            $page = 1;
+        }
 
-		$url = '';
-
-		if (isset($this->request->get['page'])) {
-			$url .= '&page=' . $this->request->get['page'];
-		}
-
+			$url = '';
 
 
 		$data = array(
-			'start' => ($page - 1) * $this->config->get('config_admin_limit'),
-			'limit' => $this->config->get('config_admin_limit')
+            'start' => ($page - 1) * $this->config->get('config_limit_admin'),
+            'limit' => $this->config->get('config_limit_admin')
 		);
+
 		$this->mdata['blogs'] = $this->model_pavblog_blog->getList( $data, $filter );
+
 		$total =  $this->model_pavblog_blog->getTotal( $data, $filter );
-		$pagination = new Pagination();
-		$pagination->total = $total;
-		$pagination->page = $page;
-		$pagination->limit = $this->config->get('config_admin_limit');
-		$pagination->text = $this->language->get('text_pagination');
-		$pagination->url = $this->url->link('extension/module/pavblog/blogs', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
+
+
+        $pagination = new Pagination();
+        $pagination->total = $total;
+        $pagination->page = $page;
+        $pagination->limit = $this->config->get('config_limit_admin');
+        $pagination->url = $this->url->link('extension/module/pavblog/blogs', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
+
+
+//        $pagination = new Pagination();
+//		$pagination->total = $total;
+//		$pagination->page = $page;
+//		$pagination->limit = $this->config->get('config_admin_limit');
+//		$pagination->text = $this->language->get('text_pagination');
+//		$pagination->url = $this->url->link('extension/module/pavblog/blogs', 'token=' . $this->session->data['token']  . '&page={page}', 'SSL');
 
 		$this->mdata['pagination'] = $pagination->render();
-		$this->setBreadcrumb();
+        $this->mdata['results'] = sprintf($this->language->get('text_pagination'), ($total) ? (($page - 1) * $this->config->get('config_limit_admin')) + 1 : 0, ((($page - 1) * $this->config->get('config_limit_admin')) > ($total - $this->config->get('config_limit_admin'))) ? $total : ((($page - 1) * $this->config->get('config_limit_admin')) + $this->config->get('config_limit_admin')), $total, ceil($total / $this->config->get('config_limit_admin')));
+
+        $this->setBreadcrumb();
 		$this->setTemplate("blogs");
 	}
 

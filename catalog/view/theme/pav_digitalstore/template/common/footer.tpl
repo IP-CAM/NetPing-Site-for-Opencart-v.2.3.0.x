@@ -55,7 +55,7 @@
           <div class="box">
             <div class="box-heading"><span><?php echo $text_service; ?></span></div>
             <ul class="list" style="list-style: none outside none; padding: 0;">
-			  <li><a href="../buy">How to buy?</a></li>
+			  <li><a href="../buy">How to Buy?</a></li>
               <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
 			  <li><a href="../support">Support</a></li>
             </ul>
@@ -64,8 +64,8 @@
 		  <div class="box">
             <div class="box-heading"><span>Partners</span></div>
             <ul class="list" style="list-style: none outside none; padding: 0;">
-			  <li><a href="../partners">Official partners</a></li>
-			  <li><a href="../partnership-how-to">How to become a partner?</a></li>
+			  <li><a href="../partners">Official Partners</a></li>
+			  <li><a href="../partnership-how-to">How to Become a Partner?</a></li>
 <!--              <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
               <li><a href="<?php echo $manufacturer; ?>"><?php echo $text_manufacturer; ?></a></li>
               <li><a href="<?php echo $voucher; ?>"><?php echo $text_voucher; ?></a></li>-->
@@ -91,9 +91,10 @@
             <ul class="list" style="list-style: none outside none; padding: 0;">
               <?php foreach ($informations as $information) { ?>
               <li><a href="<?php echo $information['href']; ?>"><?php echo $information['title']; ?></a></li>
-              <li><a href="../#">News</a></li>
-			  <li><a href="../#">Tutorial</a></li>
-			  <li><a href="../#">FAQ</a></li>
+              <li><a href="../blog/news">News</a></li>
+			  <li><a href="../blog/tutorial">Tutorial</a></li>
+			  <li><a href="../blog/faq">FAQ</a></li>
+			  <li><a href="../#">Product Catalog</a></li>
 			  <!--<li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>-->
 			  <?php } ?>
             </ul>

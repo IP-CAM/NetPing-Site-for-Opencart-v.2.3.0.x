@@ -16,6 +16,7 @@ class ControllerStartupSeoPro extends Controller {
 				$this->cache_data['keywords'][$row['keyword']] = $row['query'];
 				$this->cache_data['queries'][$row['query']] = $row['keyword'];
 			}
+
 			$this->cache->set('seo_pro', $this->cache_data);
 		}
 	}
@@ -89,7 +90,11 @@ class ControllerStartupSeoPro extends Controller {
 				$this->request->get['route'] = 'product/manufacturer/info';
 			} elseif (isset($this->request->get['information_id'])) {
 				$this->request->get['route'] = 'information/information';
-			} elseif(isset($this->cache_data['queries'][$route_])) {
+			} elseif (isset($this->request->get['blogcategory_id'])) {
+				$this->request->get['route'] = 'pavblog/category';
+			} elseif (isset($this->request->get['blog_id'])) {
+                $this->request->get['route'] = 'pavblog/blog';
+            } elseif(isset($this->cache_data['queries'][$route_])) {
 					header($this->request->server['SERVER_PROTOCOL'] . ' 301 Moved Permanently');
 					$this->response->redirect($this->cache_data['queries'][$route_]);
 			} else {
@@ -119,8 +124,15 @@ class ControllerStartupSeoPro extends Controller {
 		$route = $data['route'];
 		unset($data['route']);
 
+
 		switch ($route) {
-			case 'product/product':
+            case 'pavblog/category':
+                $seo_url.='blog';
+                break;
+//            case 'pavblog/blog':
+//                $seo_url.='blog';
+//                break;
+            case 'product/product':
 				if (isset($data['product_id'])) {
 					$tmp = $data;
 					$data = array();
@@ -153,11 +165,14 @@ class ControllerStartupSeoPro extends Controller {
 				break;
 		}
 
+
+
 		if ($component['scheme'] == 'https') {
 			$link = $this->config->get('config_ssl');
 		} else {
 			$link = $this->config->get('config_url');
 		}
+
 
 		$link .= 'index.php?route=' . $route;
 
@@ -165,10 +180,14 @@ class ControllerStartupSeoPro extends Controller {
 			$link .= '&amp;' . urldecode(http_build_query($data, '', '&amp;'));
 		}
 
+
 		$queries = array();
+
 		if(!in_array($route, array('product/search'))) {
 			foreach($data as $key => $value) {
 				switch($key) {
+                    case 'blogcategory_id':
+                    case 'blog_id':
 					case 'product_id':
 					case 'manufacturer_id':
 					case 'category_id':
@@ -193,15 +212,18 @@ class ControllerStartupSeoPro extends Controller {
 			}
 		}
 
+
 		if(empty($queries)) {
 			$queries[] = $route;
 		}
 
 		$rows = array();
 		foreach($queries as $query) {
+
 			if(isset($this->cache_data['queries'][$query])) {
 				$rows[] = array('query' => $query, 'keyword' => $this->cache_data['queries'][$query]);
 			}
+
 		}
 
 		if(count($rows) == count($queries)) {
@@ -209,10 +231,22 @@ class ControllerStartupSeoPro extends Controller {
 			foreach($rows as $row) {
 				$aliases[$row['query']] = $row['keyword'];
 			}
+
 			foreach($queries as $query) {
-				$seo_url .= '/' . rawurlencode($aliases[$query]);
+//                if ($_SERVER['REMOTE_ADDR'] == '82.117.251.40'){
+                	if (strpos($query,'blog_id') !== false){
+                        $seo_url .= '/blog/' . rawurlencode($aliases[$query]);
+					} else {
+                        $seo_url .= '/' . rawurlencode($aliases[$query]);
+					}
+
+//                } else {
+//                    $seo_url .= '/' . rawurlencode($aliases[$query]);
+//				}
+
 			}
 		}
+
 
 		if ($seo_url == '') return $link;
 
@@ -223,6 +257,7 @@ class ControllerStartupSeoPro extends Controller {
 		} else {
 			$seo_url = $this->config->get('config_url') . $seo_url;
 		}
+
 
 		if (isset($postfix)) {
 			$seo_url .= trim($this->config->get('config_seo_url_postfix'));
@@ -308,6 +343,8 @@ class ControllerStartupSeoPro extends Controller {
 			$this->request->get['route'] = 'common/home';
 		}
 
+
+
 		if (isset($this->request->server['HTTP_X_REQUESTED_WITH']) && strtolower($this->request->server['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			return;
 		}
@@ -321,6 +358,8 @@ class ControllerStartupSeoPro extends Controller {
 			$url = str_replace('&amp;', '&', $config_url . ltrim($this->request->server['REQUEST_URI'], '/'));
 			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), false));
 		}
+
+        $seo=str_replace('index.php?route=common/home','',$seo);
 
 		if (rawurldecode($url) != rawurldecode($seo)) {
 			header($this->request->server['SERVER_PROTOCOL'] . ' 301 Moved Permanently');

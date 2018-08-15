@@ -54,7 +54,8 @@
  
         </div> 
         <?php } else if ($categories) { ?>
-          <div class="refine-search">
+
+ <!--      <div class="refine-search">	
           <h3><?php echo $text_refine; ?></h3>
             <?php if (count($categories) <= 5) { ?>
             <div class="row">
@@ -79,7 +80,10 @@
               <?php } ?>
             </div>
             <?php } ?>
-         </div>    
+         </div>  
+		 
+--> 		 
+
       <?php } ?>
       </div>
       <?php if ($products) { ?>

@@ -29,7 +29,8 @@
 	<span><?php echo $heading_title; ?></span>
 	<em class="line"></em>
 </div>
-<?php if(!empty($products)){ ?>
+<?php
+if(!empty($products)){ ?>
 <div class="box-content">
 	<div id="product-<?php echo $carousel; ?>" class="slide product-grid" data-interval="0">
 		<?php if(count($products) > $cols){ ?>
@@ -58,5 +59,5 @@
 </div>
 <?php } ?>
 <script type="text/javascript">
-$('#products-<?php echo $carousel; ?>').carousel({interval:false});
+$('#products-<?php echo isset( $carousel) ?  $carousel : 0; ?>').carousel({interval:false});
 </script>
