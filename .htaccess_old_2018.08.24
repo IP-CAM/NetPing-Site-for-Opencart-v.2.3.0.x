@@ -19,15 +19,8 @@ Options -Indexes
 # Deny from all
 </FilesMatch>
 # redirect from www.domain to domain
-# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-# RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-# redirect from domain to www.domain
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
-# RewriteCond %{HTTP_HOST} ^netpingdevice.localhost
-# RewriteRule (.*) http://www.netpingdevice.localhost/$1 [R=301,L]
-
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 # SEO URL Settings
 RewriteEngine On
 # If your opencart installation does not run on the main web folder make sure you folder it does run in ie. / becomes /shop/

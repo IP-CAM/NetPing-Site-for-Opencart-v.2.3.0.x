@@ -36,7 +36,21 @@ class ModelCatalogProduct extends Model
 					$newtabcontentname = "";
 				}
 				
+
+				$newtabcontent_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_newtabcontent WHERE product_id = '" . (int)$product_id . "' AND language_id = '" . (int)$this->config->get('config_language_id') . "'");
+				if($newtabcontent_query->num_rows)  {
+					$newtabcontent = $newtabcontent_query->row['newtabcontent'];
+					$newtabcontentname = $newtabcontent_query->row['name'];
+				} else {
+					$newtabcontent = "";
+					$newtabcontentname = "";
+				}
+				
             return array(
+
+				'newtabcontent'       => $newtabcontent,
+				'newtabcontentname'       => $newtabcontentname,
+				
 
 				'newtabcontent'       => $newtabcontent,
 				'newtabcontentname'       => $newtabcontentname,
@@ -387,6 +401,9 @@ class ModelCatalogProduct extends Model
             $product_attribute_query = $this->db->query("SELECT a.attribute_id, ad.name, pa.text FROM " . DB_PREFIX . "product_attribute pa LEFT JOIN " . DB_PREFIX . "attribute a ON (pa.attribute_id = a.attribute_id) LEFT JOIN " . DB_PREFIX . "attribute_description ad ON (a.attribute_id = ad.attribute_id) WHERE pa.product_id = '" . (int)$product_id . "' AND a.attribute_group_id = '" . (int)$product_attribute_group['attribute_group_id'] . "' AND ad.language_id = '" . (int)$this->config->get('config_language_id') . "' AND pa.language_id = '" . (int)$this->config->get('config_language_id') . "' ORDER BY a.sort_order, ad.name");
 
             foreach ($product_attribute_query->rows as $product_attribute) {
+
+		$product_attribute['text'] = html_entity_decode($product_attribute['text'], ENT_QUOTES, 'UTF-8');
+		
 
 		$product_attribute['text'] = html_entity_decode($product_attribute['text'], ENT_QUOTES, 'UTF-8');
 		
