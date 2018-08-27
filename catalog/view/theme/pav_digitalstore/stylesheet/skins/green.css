@@ -1665,7 +1665,7 @@ font-family: proximanovasemibold;
   padding: 5px 30px 5px 10px;
   width: 200px;
   height: 30px;
-  line-height: 30px;
+/*  line-height: 30px;*/
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
