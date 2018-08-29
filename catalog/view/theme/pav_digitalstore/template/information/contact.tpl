@@ -18,7 +18,9 @@
       <h3><?php echo $text_location; ?></h3>
 
       <div class="contact-location hidden-xs">
-        <div id="contact-map"></div>
+        <div id="contact-map">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d903.6606591887645!2d121.50933782920696!3d25.0461989989979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a90c4758f579%3A0xb9a3ed88b4473747!2zTm8uIDI1LTEsIFNlY3Rpb24gMSwgWmhvbmdodWEgUm9hZCwgWmhvbmd6aGVuZyBEaXN0cmljdCwgVGFpcGVpIENpdHksINCi0LDQudCy0LDQvdGMIDEwMA!5e0!3m2!1sru!2sth!4v1535517363144" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
       </div>
           <div class="row contact-content">
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 hidden-xs">
