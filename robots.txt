@@ -47,6 +47,7 @@ Disallow: /*affiliate-login
 Disallow: /*affiliates
 Allow: /catalog/view/javascript/
 Allow: /catalog/view/theme/*/
+Sitemap: http://www.netpingdevice.com/index.php?route=extension/feed/google_sitemap
 
 
 User-agent: Yandex
@@ -97,4 +98,4 @@ Disallow: /*affiliates
 Allow: /catalog/view/javascript/
 Allow: /catalog/view/theme/*/
 Clean-param: tracking
-
+Sitemap: http://www.netpingdevice.com/index.php?route=extension/feed/yandex_sitemap
