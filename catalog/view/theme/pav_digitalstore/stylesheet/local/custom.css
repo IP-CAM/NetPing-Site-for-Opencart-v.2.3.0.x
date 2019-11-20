@@ -64,4 +64,8 @@
     .columnbuilder.parbase.section .eight.columns  {
         max-width: 100%;
     }
-}
+    
+    .btn-support.btn-outline {
+        letter-spacing: 1px;
+    }
+} 
